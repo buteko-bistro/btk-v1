@@ -23,7 +23,7 @@ export class NavigatorComponent {
   @ViewChild('backDrop') backDrop: ElementRef;
 
   
-  private textNavigation:{};
+  textNavigation:{};
 
 
   isDrawerOpen:boolean = false;
