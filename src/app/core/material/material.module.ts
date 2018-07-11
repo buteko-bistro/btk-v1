@@ -10,6 +10,7 @@ import {
   MatMenuModule,
   MatListModule,
   MatIconModule,
+  MatSelectModule,
   MatToolbarModule
 } from '@angular/material';
 
@@ -27,6 +28,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatMenuModule,
     MatListModule,
     MatIconModule,
+    MatSelectModule,
     MatToolbarModule
   ],
   exports: [
@@ -39,6 +41,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatMenuModule,
     MatListModule,
     MatIconModule,
+    MatSelectModule,
     MatToolbarModule
   ],
   declarations: []

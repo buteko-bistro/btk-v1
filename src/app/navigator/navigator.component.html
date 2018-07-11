@@ -2,34 +2,46 @@
   <mat-sidenav
     #drawer
     class="sidenav"
-    fixedInViewport="false"    
-    [ngClass]="{hidden: !(isHandset$ | async)}"
-    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="false"
-    >
-    <mat-toolbar color="primary">Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+    [opened]="true"
+    
+  >
+  
+
+    <mat-nav-list *ngFor="let t of textNavigation">
+        <a mat-list-item href="#">{{t[1]}}</a>
     </mat-nav-list>
+
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar class="toolbar" color="primary">
+    <mat-toolbar  class="toolbar my-toolbar" color="primary"> 
+    
+
       <button
         type="button"
         aria-label="Toggle sidenav"
         mat-icon-button
         (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
+        >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>btk-v1</span>
+      <span>Buteko</span> 
+      <btk-language-selector class="language"></btk-language-selector>
+
+
     </mat-toolbar>
     <!-- Add Content Here -->
-    ishandset: {{menu}}
-    <btk-dashboard></btk-dashboard>
+    <!-- <btk-dashboard></btk-dashboard> -->
+   
 
+    <!-- <div class="sidenav-overlay" (click)="drawer.toggle()">
+      <img src="assets/icons/x-flag-ptbr.svg" alt="flag">
+
+    </div> -->
+    <img src="assets/icons/x-flag-ptbr.svg" alt="flag">
+    <img src="assets/icons/x-flag-ptbr.svg" alt="flag">
+    <!-- <img src="assets/icons/x-flag-ptbr.svg" alt="flag">
+    <img src="assets/icons/x-flag-ptbr.svg" alt="flag"> -->
   </mat-sidenav-content>
+
 </mat-sidenav-container>
+

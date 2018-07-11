@@ -1,0 +1,16 @@
+<mat-form-field>
+    <mat-select 
+      #languageSelector
+      (selectionChange)="this.selectLanguege($event.value)"
+      [(value)]="selected"
+      panelClass="mat-select-panel2"
+    >
+      <mat-option *ngFor="let lan of languages" [value]="lan">
+        <span>{{lan.name}}</span>
+        <div class="mat-select-option-image">
+          <img  class="img-flag" [src]="lan.icon" alt="flag">
+        </div>
+      </mat-option>
+      
+    </mat-select>
+  </mat-form-field>
