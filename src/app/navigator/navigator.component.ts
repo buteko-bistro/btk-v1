@@ -20,11 +20,15 @@ import { iLanguage } from '../core/language/language-model';
 })
 export class NavigatorComponent {
   @ViewChild('drawer') drawer: ElementRef;
-  
+  @ViewChild('backDrop') backDrop: ElementRef;
+
   
   private textNavigation:{};
 
 
+  isDrawerOpen:boolean = false;
+
+  
   
   isHandset$: Observable<boolean> = this.breakpointObserver.observe([
     '(min-width: 600px)'
@@ -47,6 +51,8 @@ export class NavigatorComponent {
   }
 
 
+
+
   getWords(lang:iLanguage):void {
     this.languageService.getText(lang, 1)
       .subscribe(texts => { 
@@ -54,6 +60,29 @@ export class NavigatorComponent {
         console.log("nav" ,this.textNavigation);
 
       });
+  }
+
+
+  drawerChanged (isOpen:boolean){
+    this.isDrawerOpen = isOpen;
+    console.log('drawerChanged', event, this.backDrop)
+
+    // this.backDrop.nativeElement.hidden = !isOpened;
+    var elem = this.backDrop.nativeElement;
+    // (function fade(){
+
+    //   (s.opacity-=.01)<0?s.display="none":setTimeout(fade,40)
+    //   console.log(s.opacity)
+    // })();
+  }
+
+  closeDrawer(){
+    // console.log("hohoh",this.drawer,this.drawer.)
+
+    // if(this.isDrawerOpen){
+      
+    //   drawer.toggle()
+    // }
   }
 
   ngOnInit() {

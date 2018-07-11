@@ -1,18 +1,22 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav
-    #drawer
-    class="sidenav"
-    [opened]="true"
-    
-  >
+
+<mat-drawer-container 
+  class="sidenav-container"
+  [hasBackdrop]="false"
+>
+  <mat-drawer
+  #drawer
+  [opened]="false"
+  class="sidenav"
+  (openedChange)="this.drawerChanged($event)"
+>
   
 
-    <mat-nav-list *ngFor="let t of textNavigation">
-        <a mat-list-item href="#">{{t[1]}}</a>
-    </mat-nav-list>
+  <mat-nav-list *ngFor="let t of textNavigation">
+      <a mat-list-item href="#">{{t[1]}}</a>
+  </mat-nav-list>
 
-  </mat-sidenav>
-  <mat-sidenav-content>
+  </mat-drawer>
+  <mat-drawer-content>
     <mat-toolbar  class="toolbar my-toolbar" color="primary"> 
     
 
@@ -31,17 +35,19 @@
     </mat-toolbar>
     <!-- Add Content Here -->
     <!-- <btk-dashboard></btk-dashboard> -->
-   
+    
 
-    <!-- <div class="sidenav-overlay" (click)="drawer.toggle()">
-      <img src="assets/icons/x-flag-ptbr.svg" alt="flag">
-
-    </div> -->
+    <div 
+      #backDrop 
+      class="sidenav-overlay" 
+      (click)="drawer.close()"
+      [ngClass]="{'my-fadeOut': !isDrawerOpen }"    
+    ></div>
     <img src="assets/icons/x-flag-ptbr.svg" alt="flag">
-    <img src="assets/icons/x-flag-ptbr.svg" alt="flag">
+    <img style="z-index:20"  src="assets/icons/x-flag-ptbr.svg" alt="flag">
     <!-- <img src="assets/icons/x-flag-ptbr.svg" alt="flag">
     <img src="assets/icons/x-flag-ptbr.svg" alt="flag"> -->
-  </mat-sidenav-content>
+  </mat-drawer-content>
 
-</mat-sidenav-container>
+</mat-drawer-container>
 
