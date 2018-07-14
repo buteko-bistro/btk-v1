@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { LanguageService } from '../language.service';
-import { iLanguage } from '../language-model';
 import { MatSelectChange, MatSelect } from '@angular/material';
 import { ViewChild } from '@angular/core';
+import { iLanguage } from '../../../data/_data-models';
 
 @Component({
   selector: 'btk-language-selector',

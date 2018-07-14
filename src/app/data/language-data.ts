@@ -1,4 +1,7 @@
-import { iLanguage } from "./language-model";
+import { iLanguage } from "./_data-models";
+
+
+
 
 
 export const LANGUAGES: iLanguage[] = [
@@ -11,25 +14,25 @@ export const LANGUAGES: iLanguage[] = [
 
   export const textNAVIGATION = {
 
-      menu:{ 
-        hun: 'Étlap',
-        eng: 'Menu',
-        bra: 'Cardápio',
+      foods:{ 
+        hun: 'Ételek',
+        eng: 'Foods',
+        bra: 'Comidas',
       },
       drinks:{ 
-        hun: 'Itallap',
-        eng: 'Drink menu',
+        hun: 'Italok',
+        eng: 'Drinks',
         bra: 'Bebidas',
       },
       news:{ 
-        hun: 'Hírek',
-        eng: 'News',
-        bra: 'Notícias',
+        hun: 'Események',
+        eng: 'Events',
+        bra: 'Eventos',
       },
       gallery:{ 
-        hun: 'Galéria',
+        hun: 'Képek',
         eng: 'Gallery',
-        bra: 'Notícias',
+        bra: 'Galeria',
       },
       us:{ 
         hun: 'Rólunk',

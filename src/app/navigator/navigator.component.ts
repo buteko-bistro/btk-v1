@@ -6,7 +6,7 @@ import { ViewChild } from '@angular/core';
 import { ElementRef } from '@angular/core';
 import { MatSelectChange, MatSelect } from '@angular/material';
 import { LanguageService } from '../core/language/language.service';
-import { iLanguage } from '../core/language/language-model';
+import { iLanguage } from '../data/_data-models';
 
 
 

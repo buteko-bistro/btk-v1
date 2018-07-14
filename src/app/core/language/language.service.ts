@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { LANGUAGES, textNAVIGATION } from './language-data';
+import {  LANGUAGES, textNAVIGATION } from '../../data/language-data';
+import { iLanguage, eTextTypes } from '../../data/_data-models';
 import { of, Observable, Subject } from 'rxjs';
-import { iLanguage, eTextTypes } from './language-model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LanguageService {
 
-
+  private currentLangugeID:string;
 
   private changeLanguage: Subject<iLanguage>;
 
@@ -31,8 +31,13 @@ export class LanguageService {
 
   setLanguage(lang:iLanguage){
     this.changeLanguage.next(lang);
+    this.currentLangugeID = lang.id;
+    console.log("change ", lang)
   }
 
+  getCurrentLanguageID():string {
+    return this.currentLangugeID;
+  }
 
   getLanguages(): Observable<iLanguage[]> {
     return of(LANGUAGES);

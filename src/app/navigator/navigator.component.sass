@@ -21,7 +21,7 @@ $backdrop-gray: 100
 
 .language 
   position: absolute;
-  right: 0px;
+  right: 1rem;
   width: 50px;
   height: 100%;
 
@@ -66,8 +66,32 @@ $backdrop-gray: 100
     visibility: hidden !important;
 
 
-// .mytransition
-//   height: 22px
-//   transition-duration:0.4s
-  // transition-timing-function: cubic-bezier(0.25,0.8,0.25,1);
-  // transition-property: background-color,visibility;
+
+  
+.my-content-frame-out
+  background-color: rgba(200,211,0,0.3)
+  position: absolute;
+  top: 5rem;
+
+  width: 100%;
+  height: 50vw;
+  text-align: center;
+
+.my-content-frame
+  background-color: rgba(200,0,0,0.3)
+  position: relative;
+  // top: 5rem;
+  max-width: 700px
+  width: 100vw;
+  height: 50vw;
+  // // align-self:center
+  // //   // margin:auto
+  // //         display: block;
+  //   margin-left: auto;
+  //   margin-right: auto;
+  // //   width: 40%;
+
+  display: inline-block;
+  text-align: left;
+
+

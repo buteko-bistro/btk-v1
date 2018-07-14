@@ -11,8 +11,15 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './core/material/material.module';
 import { LanguageModule } from './core/language/language.module';
 import { NavigatorComponent } from './navigator/navigator.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { LanguageService } from './core/language/language.service';
+import { FoodsComponent } from './views/foods/foods.component';
+import { DrinksComponent } from './views/drinks/drinks.component';
+import { NewsComponent } from './views/news/news.component';
+import { ContactComponent } from './views/contact/contact.component';
+import { GalleryComponent } from './views/gallery/gallery.component';
+import { UsComponent } from './views/us/us.component';
+import { CurrencyHufPipe } from './core/pipes/currency-huf.pipe';
+import { DrinkCategoryNamePipe } from './core/pipes/drink-category-name.pipe';
 
 
 
@@ -20,7 +27,14 @@ import { LanguageService } from './core/language/language.service';
   declarations: [
     AppComponent,
     NavigatorComponent,
-    DashboardComponent
+    FoodsComponent,
+    DrinksComponent,
+    NewsComponent,
+    ContactComponent,
+    GalleryComponent,
+    UsComponent,
+    CurrencyHufPipe,
+    DrinkCategoryNamePipe
   ],
   imports: [
     BrowserModule,
