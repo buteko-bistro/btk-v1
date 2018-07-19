@@ -18,7 +18,7 @@ export class LanguageService {
   }
    
 
-
+   
   constructor() {
     this.changeLanguage = new Subject<iLanguage>();
     this.changeLanguage.subscribe({

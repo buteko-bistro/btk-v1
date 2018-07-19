@@ -1,4 +1,4 @@
-import {  iMultiLangData, iDrink, eDrinkTypes, iPrice, eCurrency, iProductGroup} from "./_data-models";
+import {  iMultiLangData, iDrink, eDrinkTypes, iPrice, eCurrency, iProductGroup, iPicture, ePictureType} from "./_data-models";
 
 
 
@@ -34,7 +34,9 @@ export const DRINKS_DATA:iProductGroup[]  = [
           ger:'Dreher - ger ',
         },
         type:eDrinkTypes.juice,
-        picture:'',
+        picture:<iPicture>{
+          path:''
+        },
         description: 
         <iMultiLangData>{
           hun:'csapolt',
@@ -54,7 +56,9 @@ export const DRINKS_DATA:iProductGroup[]  = [
           ger:'Dreher - ger ',
         },
         type:eDrinkTypes.juice,
-        picture:'',
+        picture:<iPicture>{
+          path:''
+        },
         description: 
         <iMultiLangData>{
           hun:'',
@@ -73,7 +77,9 @@ export const DRINKS_DATA:iProductGroup[]  = [
           ger:'Dreher - ger ',
         },
         type:eDrinkTypes.juice,
-        picture:'',
+        picture:<iPicture>{
+          path:''
+        },
         description: 
         <iMultiLangData>{
           hun:'csapolt',
@@ -92,7 +98,9 @@ export const DRINKS_DATA:iProductGroup[]  = [
           ger:'Dreher - ger ',
         },
         type:eDrinkTypes.juice,
-        picture:'',
+        picture:<iPicture>{
+          path:''
+        },
         description: 
         <iMultiLangData>{
           hun:'',
@@ -112,7 +120,9 @@ export const DRINKS_DATA:iProductGroup[]  = [
           ger:'Arany ászok',
         },
         type:eDrinkTypes.juice,
-        picture:'',
+        picture:<iPicture>{
+          path:''
+        },
         description: 
         <iMultiLangData>{
           hun:'',
@@ -132,7 +142,9 @@ export const DRINKS_DATA:iProductGroup[]  = [
           ger:'Hieneken',
         },
         type:eDrinkTypes.juice,
-        picture:'',
+        picture:<iPicture>{
+          path:''
+        },
         description: 
         <iMultiLangData>{
           hun:'',
@@ -152,7 +164,9 @@ export const DRINKS_DATA:iProductGroup[]  = [
           ger:'Borsodi',
         },
         type:eDrinkTypes.juice,
-        picture:'',
+        picture:<iPicture>{
+          path:''
+        },
         description: 
         <iMultiLangData>{
           hun:'',
@@ -187,7 +201,9 @@ export const DRINKS_DATA:iProductGroup[]  = [
           ger:'Egri Bikavér 2015',
         },
         type:eDrinkTypes.juice,
-        picture:'',
+        picture:<iPicture>{
+          path:''
+        },
         description: 
         <iMultiLangData>{
           hun:'Száraz vörösbor',
@@ -208,7 +224,9 @@ export const DRINKS_DATA:iProductGroup[]  = [
           ger:'Egri Bikavér 2015',
         },
         type:eDrinkTypes.juice,
-        picture:'',
+        picture:<iPicture>{
+          path:''
+        },
         description: 
         <iMultiLangData>{
           hun:'Tokaji édes fehérbor',
@@ -243,7 +261,9 @@ export const DRINKS_DATA:iProductGroup[]  = [
           ger:'Vodka - Finlandia',
         },
         type:eDrinkTypes.juice,
-        picture:'',
+        picture:<iPicture>{
+          path:''
+        },
         description: 
         <iMultiLangData>{
           hun:'Málna, Grépfrút, Körte',
@@ -263,7 +283,9 @@ export const DRINKS_DATA:iProductGroup[]  = [
           ger:'Vodka - Kalinka',
         },
         type:eDrinkTypes.juice,
-        picture:'',
+        picture:<iPicture>{
+          path:''
+        },
         description: 
         <iMultiLangData>{
           hun:'',
@@ -300,10 +322,12 @@ export const DRINKS_DATA:iProductGroup[]  = [
           ger:'Cappy - Orange',
         },
         type:eDrinkTypes.juice,
-        picture:'',
+        picture:<iPicture>{
+          path:'assets/pictures/test_cocktail.jpg'
+        },
         description: 
         <iMultiLangData>{
-          hun:"Cappy Desc hun ",
+          hun:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
           eng:'Cappy Desc eng',
           bra:'Cappy Desc bra',
           ger:'Cappy Desc ger',
@@ -312,6 +336,48 @@ export const DRINKS_DATA:iProductGroup[]  = [
       },
 
 
+    ]
+  },
+
+
+
+  
+  <iProductGroup>{ // cocktails
+    category: 
+      <iMultiLangData>{
+        hun:'Koktélok',
+        eng:'Cocktails',
+        bra:'C',
+        ger:'C',
+      },
+    columns:['name', '2cL', '4cL', '5cL', '6cL', '8cL', '21cL'],
+
+    list:[
+
+      <iDrink>{ 
+        id:'', 
+        name:<iMultiLangData>{
+          hun:'Vodka - Finlandia',
+          eng:'Vodka - Finlandia',
+          bra:'Vodka - Finlandia',
+          ger:'Vodka - Finlandia',
+        },
+        type:eDrinkTypes.juice,
+        picture:<iPicture>{
+          type:ePictureType.THUMBNAIL,
+          path:'assets/pictures/test_cocktail.jpg'
+        },
+        description: 
+        <iMultiLangData>{
+          hun:'Málna, Grépfrút, Körte',
+          eng:'Málna, Grépfrút, Körte eng',
+          bra:'Málna, Grépfrút, Körte bra',
+          ger:'Málna, Grépfrút, Körte ger',
+        },  
+        price:['390','780', '232', '213', '232', '213'],
+      },
+      
+     
     ]
   },
 

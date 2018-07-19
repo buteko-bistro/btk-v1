@@ -26,7 +26,6 @@ export class DrinksComponent implements OnInit {
 
 
   drinks = DRINKS_DATA;
-  displayedColumns: string[] = [ 'name', '0.3L', '0.5L' ];
 
  
   lang:string = 'hun'; 
@@ -48,7 +47,6 @@ export class DrinksComponent implements OnInit {
       }
     );
 
-    console.log(this.drinks)
   }
 
   

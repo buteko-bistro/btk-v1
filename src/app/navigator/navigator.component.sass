@@ -16,7 +16,8 @@ $backdrop-gray: 100
   z-index: 100;
   height: 3.5rem;
 
-
+.mat-toolbar-single-row
+    padding: 0 0 !important;
 
 
 .language 
@@ -36,6 +37,11 @@ $backdrop-gray: 100
   top: 0px;
   z-index: 100;
 
+.my-toolbar-drawer
+    background-color: rgba(100, 100, 100, 0.9)
+    z-index: 100
+
+
 
 .sidenav-overlay
   position: fixed;
@@ -44,11 +50,15 @@ $backdrop-gray: 100
   width: 100vw;
   height: 100%;
   background-color: rgba($backdrop-gray,$backdrop-gray,$backdrop-gray,0.6);
-  visibility: visible;
-  opacity: 1;
+  // visibility: visible;
+  // opacity: 1;
+  // transition: visibility 0s linear 0s, opacity 1.5s;
+  
+.transition
+  visibility: visible
+  opacity: 1
   transition: visibility 0s linear 0s, opacity 1.5s;
-  
-  
+
 
 .my-fadeOut
   visibility: hidden;
@@ -84,14 +94,38 @@ $backdrop-gray: 100
   max-width: 700px
   width: 100vw;
   height: 50vw;
-  // // align-self:center
-  // //   // margin:auto
-  // //         display: block;
-  //   margin-left: auto;
-  //   margin-right: auto;
-  // //   width: 40%;
-
   display: inline-block;
   text-align: left;
 
+.toolbar-content
+  background-color: red
+  max-width: 700px
+  width: 100vw  
+  height: 100%
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 auto
+  justify-content: center
 
+
+
+.toolbar-content-mini
+  background-color: blue
+  width: 60vw  
+  height: 100%
+  display: flex;
+  margin: 0 auto
+  justify-content: center
+
+
+.menu-button
+  position: fixed
+  left: 20px
+.menu-button-drawer
+  left: 20px
+
+.drawer-options
+  position: relative
+  top: 0rem

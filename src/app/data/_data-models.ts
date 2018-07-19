@@ -19,17 +19,28 @@ export interface iPrice {
     currency:eCurrency;
 }
 
+export interface iPicture {
+    path:string;
+    type: ePictureType;
+}
+export enum ePictureType {
+    NONE = 0,
+    THUMBNAIL,
+
+}
+
+
 
 export interface iProduct{
     id:string;
     name:iMultiLangData;
-    picture:string;
+    picture:iPicture;
     description:iMultiLangData;
     tags:string,
-    price:string[]
+    price:string[]    
 }
 
-export interface iProductGroup  {
+export interface iProductGroup  {        
     category:iMultiLangData;
     columns:string[]
     list:iProduct[]

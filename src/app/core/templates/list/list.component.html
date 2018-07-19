@@ -1,0 +1,56 @@
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let group of data">
+      <mat-expansion-panel-header>
+        <span mat-line>{{group.category[language]}}</span>
+      </mat-expansion-panel-header>
+  
+      <table mat-table [dataSource]="group.list" class="my-table">
+
+
+          <ng-container *ngIf="false" matColumnDef="picture">
+              <th mat-header-cell *matHeaderCellDef></th>
+              <td mat-cell *matCellDef="let element"> 
+                  <h4 >{{element.name[language]}}</h4>
+                  <p > {{element.description[language] }} </p>
+                {{element.name}} 
+              </td>
+          </ng-container>
+
+
+
+
+
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element"> 
+                <div class="row">
+                    <div *ngIf="element.picture.path.length" class="col-pic">
+                      <img  class="img-product" [src]="element.picture.path" alt="flag">
+
+                    </div> 
+                    <div class="col-text">
+                        <h4 >{{element.name[language]}}</h4>
+                        <p class="description"> {{element.description[language] }} </p>
+                    </div> <!-- 75% -->
+                  </div>
+                                     <!-- <img *ngIf="false" class="img-product" src="assets/icons/flag-bra.svg" alt="flag"> -->
+
+
+              <!-- {{element.name}}  -->
+            </td>
+          </ng-container>
+        
+          <ng-container [matColumnDef]="quantity" *ngFor="let quantity of group.columns.slice(1); index as i" >
+            <th mat-header-cell *matHeaderCellDef class="item-price">{{quantity}} </th>
+            <td mat-cell *matCellDef="let element" class="item-price"> 
+              {{element.price[i] | currencyHuf}}
+            </td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="group.columns" ></tr>
+  
+          <tr mat-row *matRowDef="let row; columns: group.columns;"></tr>
+        </table>
+    </mat-expansion-panel>
+  </mat-accordion>
+  

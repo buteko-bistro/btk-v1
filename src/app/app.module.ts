@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './core/material/material.module';
 import { LanguageModule } from './core/language/language.module';
 import { NavigatorComponent } from './navigator/navigator.component';
-import { LanguageService } from './core/language/language.service';
 import { FoodsComponent } from './views/foods/foods.component';
 import { DrinksComponent } from './views/drinks/drinks.component';
 import { NewsComponent } from './views/news/news.component';
@@ -20,6 +19,7 @@ import { GalleryComponent } from './views/gallery/gallery.component';
 import { UsComponent } from './views/us/us.component';
 import { CurrencyHufPipe } from './core/pipes/currency-huf.pipe';
 import { DrinkCategoryNamePipe } from './core/pipes/drink-category-name.pipe';
+import { ListComponent } from './core/templates/list/list.component';
 
 
 
@@ -34,7 +34,8 @@ import { DrinkCategoryNamePipe } from './core/pipes/drink-category-name.pipe';
     GalleryComponent,
     UsComponent,
     CurrencyHufPipe,
-    DrinkCategoryNamePipe
+    DrinkCategoryNamePipe,
+    ListComponent
   ],
   imports: [
     BrowserModule,
