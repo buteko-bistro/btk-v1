@@ -2,7 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { LanguageService } from '../language.service';
 import { MatSelectChange, MatSelect } from '@angular/material';
 import { ViewChild } from '@angular/core';
-import { iLanguage } from '../../../data/_data-models';
+import { iLanguage } from '../../../_data/_data-models';
 
 @Component({
   selector: 'btk-language-selector',
@@ -51,7 +51,6 @@ export class LanguageSelectorComponent implements OnInit {
 
     
   setHorizontalOffset():void{
-    console.log(document.querySelectorAll(".mat-select-option-image2")[0]);
   }
   
   refreshFlag():void{

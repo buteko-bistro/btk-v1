@@ -1,5 +1,11 @@
 <mat-drawer-container (window:resize)="onResize($event)" class="sidenav-container" [hasBackdrop]="false">
-  <mat-drawer *ngIf="isSmallScreen" #drawer [opened]="false" class="sidenav" (openedChange)="this.drawerChanged($event)">
+  <mat-drawer 
+      *ngIf="isSmallScreen" #drawer 
+      [opened]="false" class="sidenav" 
+      (closedStart)="manageBackDrop(false)" 
+      (openedStart)="manageBackDrop(true)" 
+      (openedChange)="this.drawerChanged($event)"
+    >
     <mat-toolbar class="toolbar  my-toolbar-drawer" color="primary">
 
       <!-- <button mat-fab mat-icon-button>Basic</button> -->
@@ -14,7 +20,7 @@
     </mat-nav-list>
    
   </mat-drawer>
-  <mat-drawer-content>
+  <mat-drawer-content id="drawerContent" class="my-drawer-content">
     <mat-toolbar class="toolbar my-toolbar" color="primary">
 
 
@@ -30,7 +36,7 @@
 
       </div>
 
-      <div *ngIf="isSmallScreen" [ngClass]="{'my-fadeOut': isDrawerOpen }" #toolbarContent class="toolbar-content-mini transition">
+      <div *ngIf="isSmallScreen" [ngClass]="{'my-fadeOut': isBackDropOn }" #toolbarContent class="toolbar-content-mini transition">
 
           
           <mat-nav-list *ngFor="let t of [textNavigation[0],textNavigation[1],textNavigation[2]]">
@@ -57,7 +63,11 @@
     </div>
 
 
-    <div #backDrop *ngIf="isSmallScreen" class="sidenav-overlay transition" (click)="drawer.close()" [ngClass]="{'my-fadeOut': !isDrawerOpen }"></div>
+    <div #backDrop *ngIf="isSmallScreen" 
+      class="sidenav-overlay transition" 
+      (click)="drawer.close()" 
+      [ngClass]="{'my-fadeOut': !isBackDropOn && isSmallScreen }"
+    ></div>
 
   </mat-drawer-content>
 

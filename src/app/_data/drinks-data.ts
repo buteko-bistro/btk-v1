@@ -1,4 +1,4 @@
-import {  iMultiLangData, iDrink, eDrinkTypes, iPrice, eCurrency, iProductGroup, iPicture, ePictureType} from "./_data-models";
+import {  iMultiLangData, iDrink, eDrinkTypes, iPrice, eCurrency, iProductGroup, iPicture, ePictureType, ePictureStyle, iProductInfo} from "./_data-models";
 
 
 
@@ -44,7 +44,7 @@ export const DRINKS_DATA:iProductGroup[]  = [
           bra:'',
           ger:'',
         },  
-        price:['390','780'],
+        price:[390,780]
       },
     
       <iDrink>{ 
@@ -66,7 +66,7 @@ export const DRINKS_DATA:iProductGroup[]  = [
           bra:'',
           ger:'',
         },  
-        price:['390','780'],
+        price:[390,780]
       },
       <iDrink>{ 
         id:'', 
@@ -87,7 +87,7 @@ export const DRINKS_DATA:iProductGroup[]  = [
           bra:'',
           ger:'',
         },  
-        price:['390','780'],
+        price:[390,780]
       },
       <iDrink>{ 
         id:'', 
@@ -108,7 +108,7 @@ export const DRINKS_DATA:iProductGroup[]  = [
           bra:'',
           ger:'',
         },  
-        price:['390','780'],
+        price:[390,780]
       },
 
       <iDrink>{ 
@@ -130,7 +130,7 @@ export const DRINKS_DATA:iProductGroup[]  = [
           bra:'',
           ger:'',
         },  
-        price:['390','780'],
+        price:[390,780]
       },
      
       <iDrink>{ 
@@ -152,7 +152,7 @@ export const DRINKS_DATA:iProductGroup[]  = [
           bra:'',
           ger:'',
         },  
-        price:['-','580'],
+        price:[-1,580]
       },
            
       <iDrink>{ 
@@ -174,7 +174,16 @@ export const DRINKS_DATA:iProductGroup[]  = [
           bra:'',
           ger:'',
         },  
-        price:['-','480'],
+        price:[-1,480],
+        info:<iProductInfo>{
+          text:<iMultiLangData>{
+            hun:'Cappy - Narancs',
+            eng:'Cappy - Orange',
+            bra:'Cappy - Laranja',
+            ger:'Cappy - Orange',
+          },
+        }
+
       },
 
     ]
@@ -211,7 +220,7 @@ export const DRINKS_DATA:iProductGroup[]  = [
           bra:'Száraz vörösbor bra',
           ger:'Száraz vörösbor ger',
         },  
-        price:['300','-', '10000'],
+        price:[300,43242, 10000]
       },
 
 
@@ -235,7 +244,7 @@ export const DRINKS_DATA:iProductGroup[]  = [
           ger:'Tokaji édes fehérbor ger'
  
         },  
-        price:['300','2000','-'],
+        price:[300,2000,-1]
       },
     ]
   },
@@ -271,7 +280,7 @@ export const DRINKS_DATA:iProductGroup[]  = [
           bra:'Málna, Grépfrút, Körte bra',
           ger:'Málna, Grépfrút, Körte ger',
         },  
-        price:['390','780'],
+        price:[390,780]
       },
       
       <iDrink>{ 
@@ -293,7 +302,72 @@ export const DRINKS_DATA:iProductGroup[]  = [
           bra:'',
           ger:'',
         },  
-        price:['290','580'],
+        price:[290,580]
+      },
+
+      <iDrink>{ 
+        id:'', 
+        name:<iMultiLangData>{
+          hun:'Cappy - Narancs',
+          eng:'Cappy - Orange',
+          bra:'Cappy - Laranja',
+          ger:'Cappy - Orange',
+        },
+        type:eDrinkTypes.juice,
+        picture:<iPicture>{
+          path:'assets/pictures/test_cocktail5.jpg',
+        },
+        description: 
+        <iMultiLangData>{
+          hun:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+          eng:'Cappy Desc eng',
+          bra:'Cappy Desc bra',
+          ger:'Cappy Desc ger',
+        },  
+        price:[300,-1]
+      },
+
+      <iDrink>{ 
+        id:'', 
+        name:<iMultiLangData>{
+          hun:'Cappy - Narancs',
+          eng:'Cappy - Orange',
+          bra:'Cappy - Laranja',
+          ger:'Cappy - Orange',
+        },
+        type:eDrinkTypes.juice,
+        picture:<iPicture>{
+          path:'assets/pictures/test_cocktail5.jpg',
+        },
+        description: 
+        <iMultiLangData>{
+          hun:"Lorem ipsumliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+          eng:'Cappy Desc eng',
+          bra:'Cappy Desc bra',
+          ger:'Cappy Desc ger',
+        },  
+        price:[300,-1]
+      },
+      <iDrink>{ 
+        id:'', 
+        name:<iMultiLangData>{
+          hun:'Cappy - Narancs',
+          eng:'Cappy - Orange',
+          bra:'Cappy - Laranja',
+          ger:'Cappy - Orange',
+        },
+        type:eDrinkTypes.juice,
+        picture:<iPicture>{
+          path:'assets/pictures/test_cocktail5.jpg',
+        },
+        description: 
+        <iMultiLangData>{
+          hun:"Lorem ipsumliqua. Utsequat. ",
+          eng:'Cappy Desc eng',
+          bra:'Cappy Desc bra',
+          ger:'Cappy Desc ger',
+        },  
+        price:[300,-1]
       },
       
      
@@ -309,9 +383,65 @@ export const DRINKS_DATA:iProductGroup[]  = [
         ger:'Alkoholfrei',
       },
 
-    columns:['name', '0.33L', '0.5L'],
+    columns:['name', '0.33L', '0.5L','0.8L'],
 
     list:[
+
+       
+ 
+      <iDrink>{ 
+        id:'', 
+        name:<iMultiLangData>{
+          hun:'Cappy - Narancs',
+          eng:'Cappy - Orange',
+          bra:'Cappy - Laranja',
+          ger:'Cappy - Orange',
+        },
+        type:eDrinkTypes.juice,
+        picture:<iPicture>{
+          path:'assets/pictures/test_cocktail.jpg'
+        },
+        description: 
+        <iMultiLangData>{
+          hun:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+          eng:'Cappy Desc eng',
+          bra:'Cappy Desc bra',
+          ger:'Cappy Desc ger',
+        },  
+        price:[300,200],
+        info:<iProductInfo>{
+          text:<iMultiLangData>{
+            hun:'Cappy - Narancs',
+            eng:'Cappy - Orange',
+            bra:'Cappy - Laranja',
+            ger:'Cappy - Orange',
+          },
+        }
+      },
+
+
+      <iDrink>{ 
+        id:'', 
+        name:<iMultiLangData>{
+          hun:'Cappy - Narancs',
+          eng:'Cappy - Orange',
+          bra:'Cappy - Laranja',
+          ger:'Cappy - Orange',
+        },
+        type:eDrinkTypes.juice,
+        picture:<iPicture>{
+          path:''
+        },
+        description: 
+        <iMultiLangData>{
+          hun:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+          eng:'Cappy Desc eng',
+          bra:'Cappy Desc bra',
+          ger:'Cappy Desc ger',
+        },  
+        price:[300,-1, 100],
+      },
+
      
       <iDrink>{ 
         id:'', 
@@ -332,9 +462,78 @@ export const DRINKS_DATA:iProductGroup[]  = [
           bra:'Cappy Desc bra',
           ger:'Cappy Desc ger',
         },  
-        price:['300','-'],
+        price:[300,-1,400]
       },
 
+
+
+      <iDrink>{ 
+        id:'', 
+        name:<iMultiLangData>{
+          hun:'Cappy - Narancs',
+          eng:'Cappy - Orange',
+          bra:'Cappy - Laranja',
+          ger:'Cappy - Orange',
+        },
+        type:eDrinkTypes.juice,
+        picture:<iPicture>{
+          path:'assets/pictures/test_cocktail5.jpg',
+          style:ePictureStyle.redux
+        },
+        description: 
+        <iMultiLangData>{
+          hun:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+          eng:'Cappy Desc eng',
+          bra:'Cappy Desc bra',
+          ger:'Cappy Desc ger',
+        },  
+        price:[300,-1,3033],
+      },
+
+      <iDrink>{ 
+        id:'', 
+        name:<iMultiLangData>{
+          hun:'Cappy - Narancs',
+          eng:'Cappy - Orange',
+          bra:'Cappy - Laranja',
+          ger:'Cappy - Orange',
+        },
+        type:eDrinkTypes.juice,
+        picture:<iPicture>{
+          path:'assets/pictures/test_cocktail5.jpg',
+          style:ePictureStyle.redux
+        },
+        description: 
+        <iMultiLangData>{
+          hun:"Lorem ipsumliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+          eng:'Cappy Desc eng',
+          bra:'Cappy Desc bra',
+          ger:'Cappy Desc ger',
+        },  
+        price:[300,-1],
+      },
+      <iDrink>{ 
+        id:'', 
+        name:<iMultiLangData>{
+          hun:'Cappy - Narancs',
+          eng:'Cappy - Orange',
+          bra:'Cappy - Laranja',
+          ger:'Cappy - Orange',
+        },
+        type:eDrinkTypes.juice,
+        picture:<iPicture>{
+          path:'assets/pictures/test_cocktail5.jpg',
+          style:ePictureStyle.redux
+        },
+        description: 
+        <iMultiLangData>{
+          hun:"Lorem ipsumliqua. Utsequat. ",
+          eng:'Cappy Desc eng',
+          bra:'Cappy Desc bra',
+          ger:'Cappy Desc ger',
+        },  
+        price:[300,-1]
+      },
 
     ]
   },
@@ -374,9 +573,40 @@ export const DRINKS_DATA:iProductGroup[]  = [
           bra:'Málna, Grépfrút, Körte bra',
           ger:'Málna, Grépfrút, Körte ger',
         },  
-        price:['390','780', '232', '213', '232', '213'],
+        price:[390,780, 232, 213, 232, 213],
       },
       
+
+      <iDrink>{ 
+        id:'', 
+        name:<iMultiLangData>{
+          hun:'Vodka - Finlandia',
+          eng:'Vodka - Finlandia',
+          bra:'Vodka - Finlandia',
+          ger:'Vodka - Finlandia',
+        },
+        type:eDrinkTypes.juice,
+        picture:<iPicture>{
+          type:ePictureType.THUMBNAIL,
+          path:'assets/pictures/test_cocktail3.png'
+        },
+        description: 
+        <iMultiLangData>{
+          hun:'Málna, Grépfrút, Körte',
+          eng:'Málna, Grépfrút, Körte eng',
+          bra:'Málna, Grépfrút, Körte bra',
+          ger:'Málna, Grépfrút, Körte ger',
+        },  
+        price:[390,780, 232, 219, 232, 213],
+        info:<iProductInfo>{
+          text:<iMultiLangData>{
+            hun:'Cappy - Narancs',
+            eng:'Cappy - Orange',
+            bra:'Cappy - Laranja',
+            ger:'Cappy - Orange',
+          },
+        }
+      },
      
     ]
   },

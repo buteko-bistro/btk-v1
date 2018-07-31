@@ -1,0 +1,10 @@
+<div *ngIf="type==1" class="i1-product-cell-img-container">
+  <img class="i1-product-img" [src]="data.picture.path">
+  <div class="i1-product-cell-img-shader i1-shader" [ngClass]="{'i1-product-cell-img-shader-redux': data.picture.style == 2 }"></div>
+</div>
+
+
+<div (resized)="onResized($event)" *ngIf="type==2" class="i2-product-cell-img-container">
+  <img    class="i2-product-img" [src]="data.picture.path">
+  <div class="i2-product-cell-img-shader i2-shader" [ngClass]="{'i1-product-cell-img-shader-redux': data.picture.style == 2 }"></div>
+</div>

@@ -1,14 +1,14 @@
 import { Component, HostListener } from '@angular/core';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
-import { Observable, Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, Subscription, fromEvent } from 'rxjs';
+import { map, throttleTime, pairwise, debounceTime } from 'rxjs/operators';
 import { ViewChild } from '@angular/core';
 import { ElementRef } from '@angular/core';
 import { MatSelectChange, MatSelect } from '@angular/material';
 import { LanguageService } from '../core/language/language.service';
-import { iLanguage } from '../data/_data-models';
 import { ScreenService } from '../core/screen/screen.service';
 import { getBodyNode } from '../../../node_modules/@angular/animations/browser/src/render/shared';
+import { iLanguage } from '../_data/_data-models';
 
 
 
@@ -34,13 +34,32 @@ export class NavigatorComponent {
   @ViewChild('drawerCloseButton') private drawerCloseButton: ElementRef;
 
 
-
+  
+  manageBackDrop(isOn:boolean):void{
+    this.isBackDropOn = isOn;
+  }
 
   textNavigation:{};
 
-  
+  ngAfterViewInit() {
+   
+    this.screenService.subscribeScroll(document.querySelector('#drawerContent'))
+
+    // let content = document.querySelector('#drawerContent');
+    // const scroll$ = fromEvent(content, 'scroll').pipe(
+    //   debounceTime(100)
+    // );
+
+    // scroll$.subscribe(() => (console.log(" scroll", content.scrollTop, content.scrollHeight, content.clientHeight+content.scrollTop)));
+   
+
+
+
+  }
 
   isDrawerOpen:boolean = false;
+  isBackDropOn:boolean = false;
+
 
   isSmallScreen:boolean = false;
   
@@ -48,6 +67,7 @@ export class NavigatorComponent {
 
   private subscription_changeLanguage :Subscription;
   private subscription_screen :Subscription;
+  private subscription_screenBreakpoint :Subscription;
   
   constructor(
     private languageService:LanguageService,
@@ -55,19 +75,29 @@ export class NavigatorComponent {
   ) { 
     
     this.subscription_changeLanguage = this.languageService.getChangeLanguage().subscribe(lang => { 
-      this.getWords(lang);
-      console.log("NAV getChangeLanguage ",  window.innerWidth, document.body.clientWidth)
- 
+      this.getWords(lang); 
     });
 
     this.subscription_screen = this.screenService.screen().subscribe({
       next: (value)=>{
-        this.isSmallScreen = !value.isBig;
-        console.log("subscription_screen: ", value)
+        
+        
       }
     });
+
+    this.subscription_screenBreakpoint = this.screenService.screenBreakpointBig().subscribe({
+      next: (isBig)=>{
+        this.isSmallScreen = !isBig;
+        this.isDrawerOpen = false;
+        if(isBig) this.isBackDropOn = false;
+      }
+    });
+
+ 
     this.screenService.triggerScreenCheck();
   }
+
+
 
 
 
@@ -76,15 +106,12 @@ export class NavigatorComponent {
     this.languageService.getText(lang, 1)
       .subscribe(texts => { 
         this.textNavigation = Object.entries(texts); 
-        console.log("nav" ,this.textNavigation);
-
       });
   }
 
 
   drawerChanged (isOpen:boolean){
-    this.isDrawerOpen = isOpen;
-    console.log('drawerChanged', event, this.backDrop)
+    // this.isDrawerOpen = isOpen;
 
     this.drawerOpenButton['_elementRef'].nativeElement
     .classList.remove('cdk-program-focused');
@@ -109,14 +136,13 @@ export class NavigatorComponent {
   }
 
   ngOnInit() {
-    console.log("drawer", this.drawer)
-    this.drawer
 
   }
 
   ngOnDestroy() {
     this.subscription_changeLanguage.unsubscribe();
     this.subscription_screen.unsubscribe();
+    this.subscription_screenBreakpoint.unsubscribe();
   }
 
 }

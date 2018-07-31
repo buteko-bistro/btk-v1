@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DRINKS_DATA } from '../../../data/drinks-data';
-import { iProductGroup } from '../../../data/_data-models';
+import { iProductGroup, eTableType } from '../../../_data/_data-models';
 
 @Component({
   selector: 'btk-list',
@@ -10,6 +9,7 @@ import { iProductGroup } from '../../../data/_data-models';
 export class ListComponent implements OnInit {
   @Input() data: iProductGroup[];
   @Input() language: string;
+  @Input() isTiny: boolean;
 
   pictureTag = 'picture'
 
@@ -17,15 +17,13 @@ export class ListComponent implements OnInit {
 
  
   lang:string = 'hun'; 
-
+  tabletype = eTableType.default;
 
   constructor() { }
 
   ngOnInit() {
-    console.log("ngOnInit ", this.language, this.data)
   }
   ngOnChanges() {
-    console.log("ngOnChanges ", this.language, this.data)
   }
 
 }

@@ -4,9 +4,12 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import {NgxPopperModule} from 'ngx-popper';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AngularResizedEventModule } from 'angular-resize-event';
+
 
 import { MaterialModule } from './core/material/material.module';
 import { LanguageModule } from './core/language/language.module';
@@ -20,6 +23,11 @@ import { UsComponent } from './views/us/us.component';
 import { CurrencyHufPipe } from './core/pipes/currency-huf.pipe';
 import { DrinkCategoryNamePipe } from './core/pipes/drink-category-name.pipe';
 import { ListComponent } from './core/templates/list/list.component';
+import { TableComponent } from './core/templates/table/table.component';
+import { CardComponent } from './core/templates/card/card.component';
+import { ImageComponent } from './core/templates/image/image.component';
+import { GridComponent } from './core/templates/grid/grid.component';
+import { CardFrameComponent } from './core/templates/card-frame/card-frame.component';
 
 
 
@@ -35,7 +43,12 @@ import { ListComponent } from './core/templates/list/list.component';
     UsComponent,
     CurrencyHufPipe,
     DrinkCategoryNamePipe,
-    ListComponent
+    ListComponent,
+    TableComponent,
+    CardComponent,
+    ImageComponent,
+    GridComponent,
+    CardFrameComponent    
   ],
   imports: [
     BrowserModule,
@@ -44,7 +57,9 @@ import { ListComponent } from './core/templates/list/list.component';
     FormsModule,
     FlexLayoutModule,
     MaterialModule,
-    LanguageModule
+    LanguageModule,
+    NgxPopperModule,
+    AngularResizedEventModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,49 @@
+<div #cardContainer id="container" [@listAnimation]="deck.visibleCards.length">
+  <div class="scene scene--card" *ngFor="let card of deck.visibleCards">
+    <div  class="price">
+      <div class="product-container-value price-container" [@priceAnimation]="card.data.price.length">
+
+        <div class="" *ngFor="let prc of card.data.price; let i = index">
+          
+          <mat-card *ngIf="prc>0" class="product-value-badge">
+            <span class="price-text"> {{prc | currencyHuf}} </span>
+            <span *ngIf="card.validPrices>1" class="quantity-text">{{deck.columns[i+1]}}</span>
+            
+          </mat-card>
+
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- <mat-card *ngFor="let prc of card.data.price; let i = index" class="product-price" [style.top.rem]="i*1.9">
+          {{prc | currencyHuf}}
+
+      </mat-card> -->
+    <div class="product-text-container invisible " [ngClass]="{'tiny-text':isTiny}">
+
+      <h4 #popperTargetElement class="product-title">{{card.data.name[language]}}</h4>
+      <p class="product-desc">{{card.data.description[language] }} </p>
+    </div>
+    <mat-card [id]="card.id" class="card">
+      <div class="card__face card__face--front">
+        <div class="product-text-container" [ngClass]="{'tiny-text':isTiny}">
+
+          <h4 [@cardState]="card.state" #popperTargetElement class="product-title">{{card.data.name[language]}}</h4>
+          <p [@cardState]="card.state" class="product-desc">{{card.data.description[language] }} </p>
+        </div>
+        <div class="product-img-shader shader" [ngClass]="{'tiny-shader':isTiny}"></div>
+
+        <div class="product-img-container">
+          <img class="product-img" [src]="card.data.picture.path">
+        </div>
+      </div>
+      <div class="card__face card__face--back">
+
+      </div>
+    </mat-card>
+  </div>
+</div>
+
+<!-- [ngClass]="{'tiny-text':isTiny}" -->

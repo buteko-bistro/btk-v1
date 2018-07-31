@@ -1,5 +1,92 @@
-<p>
+<p #trrt>
   gallery works!
 </p>
 <!-- LightWidget WIDGET -->
+<!-- 
+<div     [popper]="popper1Content"
+          [popperShowOnStart]="true"
+          [popperTrigger]="'click'"
+          [popperHideOnClickOutside]="true"
+          [popperHideOnScroll]="true"
+          [popperPlacement]="'bottom'">
+       <p class="bold">Hey!</p>
+       <p class="thin">Choose where to put your popper!</p>         
+     </div>
+     <popper-content #popper1Content>
+       <p class="bold">Popper on bottom</p>
+     </popper-content>
 
+
+     <div [popper]="'As text'"
+     [popperTrigger]="'hover'"
+     [popperPlacement]="'bottom'"
+     (popperOnShown)="onShown($event)">
+  <p class="bold">Pop</p>
+  <p class="thin">on the bottom</p>
+</div>
+
+ -->
+
+
+
+
+
+<!-- <div [popper]="tooltipcontent"
+[popperTrigger]="'hover'"
+[popperPlacement]="'bottom'"
+[popperApplyClass]="'popperSpecialStyle'">
+<p class="bold">Pop</p>
+<p class="thin">on the bottom</p>
+</div>
+<popper-content #tooltipcontent>
+<div>
+<p>This is a tooltip with text</p>
+<span (click)="tooltipcontent.hide()">Close</div>
+</div>
+</popper-content> -->
+
+<!-- <div [popper]="tooltipcontent"
+[popperTrigger]="'hover'"
+[popperPlacement]="'bottom'"
+[popperApplyClass]="'popperSpecialStyle'">
+<p class="bold">Pop</p>
+<p class="thin">on the bottom</p>
+</div>
+<popper-content #tooltipcontent>
+<div>
+<p>This is a tooltip with text</p>
+<span (click)="tooltipcontent.hide()">Close</div>
+</div>
+</popper-content> -->
+<!-- 
+<div class="example">
+    <div #popperTargetElement></div>
+    <div [popper]="'As text'"
+         [popperTrigger]="'hover'"
+         [popperPlacement]="'bottom'"
+         [popperTarget]="trrt"
+         (popperOnShown)="onShown($event)">
+    </div> -->
+
+
+    <button mat-button>Click me!</button>
+
+    <div     [popper]="popper1Content"
+          [popperShowOnStart]="true"
+          [popperTrigger]="'click'"
+          [popperHideOnClickOutside]="true"
+          [popperHideOnScroll]="true"
+          [popperPlacement]="'bottom'">
+          <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+              <mat-button-toggle value="bold">Bold</mat-button-toggle>
+              <mat-button-toggle value="italic">Italic</mat-button-toggle>
+              <mat-button-toggle value="underline">Underline</mat-button-toggle>
+            </mat-button-toggle-group>
+     </div>
+     <popper-content #popper1Content>
+          <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+              <mat-button-toggle value="bold">Bold</mat-button-toggle>
+              <mat-button-toggle value="italic">Italic</mat-button-toggle>
+              <mat-button-toggle value="underline">Underline</mat-button-toggle>
+            </mat-button-toggle-group>
+     </popper-content>

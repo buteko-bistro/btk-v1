@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class CurrencyHufPipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
-    return (value=='-' ? "" : value + ",-");
+    return (value=='-' || value=='' || value==undefined || value<0 ? "" : value + ",-");
   }
 
 }

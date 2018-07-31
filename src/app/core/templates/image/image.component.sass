@@ -1,0 +1,105 @@
+$i1-picture-width: 6.5rem
+$i2-picture-width: 12.5rem
+
+
+
+
+
+.i1-product-cell-img-container
+    position: absolute
+    top: 0%
+    width: $i1-picture-width
+    height: 100%;
+    // background: rgba(200,0,0,0.3)
+//     z-index: 100
+
+.i1-product-cell-img-shader
+    position: absolute
+    top: 0%
+    width: 104%
+    background: rgba(200,0,0,0.3)
+    height: 100%;
+    z-index: 1
+
+.i1-product-cell-img-shader-redux
+    height: 90%;
+    top: 5%
+
+
+.i1-product-img
+    position: absolute
+    top: 0%
+    // width: auto
+    height: 101%;
+    z-index: 1
+    max-width: $i1-picture-width
+    background: rgba(200,0,0,0.3)
+
+
+
+$i1-shade-start:    rgba( 255, 255, 255, 0) 30%
+$i1-shade-mid:      rgba( 255, 255, 255, 0.06) 40%, rgba( 255, 255, 255, 0.27) 50%, rgba( 255, 255, 255, 0.5) 60%, rgba( 255, 255, 255, 0.75) 70%, rgba( 255, 255, 255, 0.90) 80%, rgba( 255, 255, 255, 0.97) 90%
+$i1-shade-end:      rgba( 255, 255, 255, 1) 95%
+
+
+
+
+.i1-shader
+    background: -moz-linear-gradient(right,  $i1-shade-start, $i1-shade-mid, $i1-shade-end);
+    background: -webkit-linear-gradient(right,  $i1-shade-start, $i1-shade-mid, $i1-shade-end);
+    background: -o-linear-gradient(right, $i1-shade-start, $i1-shade-mid, $i1-shade-end);
+    background: -ms-linear-gradient(right, $i1-shade-start, $i1-shade-mid, $i1-shade-end);
+    background: linear-gradient(to right, $i1-shade-start, $i1-shade-mid, $i1-shade-end);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 );
+  
+
+  
+
+.i2-product-cell-img-container
+    position: absolute
+    top: 0%
+    width: $i2-picture-width
+    height: 100%;
+    overflow: hidden
+    background: rgba(200,0,0,1)
+//     z-index: 100
+
+.i2-product-cell-img-shader
+    position: absolute
+    top: 0%
+    width: 104%
+    // background: rgba(200,0,0,0.3)
+    height: 100%;
+    z-index: 1
+
+.i2-product-cell-img-shader-redux
+    height: 90%;
+    top: 5%
+
+
+.i2-product-img
+    position: absolute
+    top: 0%
+    // width: 100px
+    height: 100%;
+    z-index: 1
+    max-width: $i2-picture-width
+    // background: rgba(200,0,0,0.3)
+
+
+$i2-shade-start:    rgba( 255, 255, 255, 0) 20%
+$i2-shade-mid:      rgba( 255, 255, 255, 0.06) 30%, rgba( 255, 255, 255, 0.27) 40%, rgba( 255, 255, 255, 0.5) 50%, rgba( 255, 255, 255, 0.75) 70%, rgba( 255, 255, 255, 0.90) 80%, rgba( 255, 255, 255, 0.97) 90%
+$i2-shade-end:      rgba( 255, 255, 255, 1) 95%
+
+
+
+
+.i2-shader
+    background: -moz-linear-gradient(right,  $i2-shade-start, $i2-shade-mid, $i2-shade-end);
+    background: -webkit-linear-gradient(right,  $i2-shade-start, $i2-shade-mid, $i2-shade-end);
+    background: -o-linear-gradient(right, $i2-shade-start, $i2-shade-mid, $i2-shade-end);
+    background: -ms-linear-gradient(right, $i2-shade-start, $i2-shade-mid, $i2-shade-end);
+    background: linear-gradient(to right, $i2-shade-start, $i2-shade-mid, $i2-shade-end);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 );
+  
+  

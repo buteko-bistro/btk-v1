@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {  LANGUAGES, textNAVIGATION } from '../../data/language-data';
-import { iLanguage, eTextTypes } from '../../data/_data-models';
+import {  LANGUAGES, textNAVIGATION } from '../../_data/language-data';
+import { iLanguage, eTextTypes } from '../../_data/_data-models';
 import { of, Observable, Subject } from 'rxjs';
 
 @Injectable({
@@ -22,7 +22,9 @@ export class LanguageService {
   constructor() {
     this.changeLanguage = new Subject<iLanguage>();
     this.changeLanguage.subscribe({
-      next: (value)=>{console.log("Subject val: ", value)}
+      next: (value)=>{
+        
+      }
     })
     
     this.changeLanguage.next(<iLanguage>{id: 'ger', name: 'Deutsch', icon:"assets/icons/flag-ger.svg"})
@@ -32,7 +34,6 @@ export class LanguageService {
   setLanguage(lang:iLanguage){
     this.changeLanguage.next(lang);
     this.currentLangugeID = lang.id;
-    console.log("change ", lang)
   }
 
   getCurrentLanguageID():string {
