@@ -24,3 +24,21 @@ th.mat-column-position, td.mat-column-position {
 .mat-table-sticky:last-child {
   border-left: 1px solid #e0e0e0;
 }
+
+
+
+
+
+
+
+
+.food-option-frame{
+  position: absolute;
+  top: 3rem;
+  left: 4rem;
+  color: aqua;
+  background-color: black;
+  width: 60px;
+  height: 60px;
+  z-index: 2000;
+}

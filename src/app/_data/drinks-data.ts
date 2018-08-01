@@ -10,10 +10,11 @@ import {  iMultiLangData, iDrink, eDrinkTypes, iPrice, eCurrency, iProductGroup,
 
 export const DRINKS_DATA:iProductGroup[]  = [
   
-  
+
   
 
   <iProductGroup>{ // beer
+    
     category: 
       <iMultiLangData>{
         hun:'Sörök',
@@ -405,13 +406,13 @@ export const DRINKS_DATA:iProductGroup[]  = [
         <iMultiLangData>{
           hun:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
           eng:'Cappy Desc eng',
-          bra:'Cappy Desc bra',
+          bra:'Cappy Desc bra', 
           ger:'Cappy Desc ger',
         },  
         price:[300,200],
         info:<iProductInfo>{
           text:<iMultiLangData>{
-            hun:'Cappy - Narancs',
+            hun:'Lorem ipsum dolor sit amet, consectetur INFO',
             eng:'Cappy - Orange',
             bra:'Cappy - Laranja',
             ger:'Cappy - Orange',

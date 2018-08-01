@@ -1,12 +1,7 @@
 <mat-drawer-container (window:resize)="onResize($event)" class="sidenav-container" [hasBackdrop]="false">
-  <mat-drawer 
-      *ngIf="isSmallScreen" #drawer 
-      [opened]="false" class="sidenav" 
-      (closedStart)="manageBackDrop(false)" 
-      (openedStart)="manageBackDrop(true)" 
-      (openedChange)="this.drawerChanged($event)"
-    >
-    <mat-toolbar class="toolbar  my-toolbar-drawer" color="primary">
+  <mat-drawer *ngIf="isSmallScreen" #drawer [opened]="false" class="sidenav" (closedStart)="manageBackDrop(false)" (openedStart)="manageBackDrop(true)"
+    (openedChange)="this.drawerChanged($event)">
+    <mat-toolbar class="toolbar  my-toolbar-drawer " color="primary">
 
       <!-- <button mat-fab mat-icon-button>Basic</button> -->
       <button #drawerCloseButton mat-icon-button class="menu-button-drawer" type="button" (click)="drawer.toggle()">
@@ -18,18 +13,21 @@
     <mat-nav-list class="drawer-options" *ngFor="let t of textNavigation">
       <a mat-list-item [routerLink]="t[0]" href="#">{{t[1]}}</a>
     </mat-nav-list>
-   
+
   </mat-drawer>
   <mat-drawer-content id="drawerContent" class="my-drawer-content">
+
     <mat-toolbar class="toolbar my-toolbar" color="primary">
 
-
-      <button  #drawerOpenButton *ngIf="isSmallScreen" class="menu-button" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+      <button #drawerOpenButton *ngIf="isSmallScreen" class="menu-button" type="button" aria-label="Toggle sidenav" mat-icon-button
+        (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <div *ngIf="!isSmallScreen" #toolbarContent class="toolbar-content">
-        <span>Buteko</span>
-        |
+        <div class="logo-img-container  logo-img-container-main">
+          <img class="logo-img" [src]="logo">
+        </div>
+      
         <mat-nav-list *ngFor="let t of textNavigation">
           <a mat-list-item [routerLink]="t[0]" href="#">{{t[1]}}</a>
         </mat-nav-list>
@@ -37,25 +35,39 @@
       </div>
 
       <div *ngIf="isSmallScreen" [ngClass]="{'my-fadeOut': isBackDropOn }" #toolbarContent class="toolbar-content-mini transition">
+          <div class="logo-img-container">
+              <img class="logo-img" [src]="logo">
+            </div>
 
-          
-          <mat-nav-list *ngFor="let t of [textNavigation[0],textNavigation[1],textNavigation[2]]">
+        <!-- <mat-nav-list *ngFor="let t of [textNavigation[0],textNavigation[1],textNavigation[2]]">
             <a mat-list-item [routerLink]="t[0]" href="#">{{t[1]}}</a>
-          </mat-nav-list>
-  
-        </div>
+          </mat-nav-list> -->
+
+        <!-- <mat-button-toggle-group #group="matButtonToggleGroup">
+              <mat-button-toggle value="left">
+                <mat-icon>format_align_left</mat-icon>
+              </mat-button-toggle>
+              <mat-button-toggle value="center">
+                <mat-icon>format_align_center</mat-icon>
+              </mat-button-toggle>
+              <mat-button-toggle value="right">
+                <mat-icon>format_align_right</mat-icon>
+              </mat-button-toggle>
+              <mat-button-toggle value="justify" disabled>
+                <mat-icon>format_align_justify</mat-icon>
+              </mat-button-toggle>
+            </mat-button-toggle-group> -->
+
+      </div>
       <btk-language-selector class="language"></btk-language-selector>
 
     </mat-toolbar>
     <!-- Add Content Here -->
-    <!-- <btk-dashboard></btk-dashboard> -->
 
+    <div class="background-img-container">
+        <img class="background-img" [src]="background">
+      </div>
 
-
-    <img src="assets/icons/x-flag-ptbr.svg" alt="flag">
-    <!-- <img style="z-index:20"  src="assets/icons/x-flag-ptbr.svg" alt="flag"> -->
-    <!-- <img src="assets/icons/x-flag-ptbr.svg" alt="flag">
-    <img src="assets/icons/x-flag-ptbr.svg" alt="flag"> -->
     <div class="my-content-frame-out">
       <div class="my-content-frame">
         <router-outlet></router-outlet>
@@ -63,11 +75,7 @@
     </div>
 
 
-    <div #backDrop *ngIf="isSmallScreen" 
-      class="sidenav-overlay transition" 
-      (click)="drawer.close()" 
-      [ngClass]="{'my-fadeOut': !isBackDropOn && isSmallScreen }"
-    ></div>
+    <div #backDrop *ngIf="isSmallScreen" class="sidenav-overlay transition" (click)="drawer.close()" [ngClass]="{'my-fadeOut': !isBackDropOn && isSmallScreen }"></div>
 
   </mat-drawer-content>
 

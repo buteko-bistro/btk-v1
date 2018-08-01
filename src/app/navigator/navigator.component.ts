@@ -63,7 +63,8 @@ export class NavigatorComponent {
 
   isSmallScreen:boolean = false;
   
-  
+  logo = "assets/pictures/website/buteko_text.svg"
+  background = "assets/pictures/website/brasil.jpg"
 
   private subscription_changeLanguage :Subscription;
   private subscription_screen :Subscription;

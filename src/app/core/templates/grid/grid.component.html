@@ -16,26 +16,55 @@
       </div>
 
     </div>
+    <!-- <div class="product-icons">
+      <button mat-icon-button >
+        <mat-icon>photo_camera</mat-icon>
+      </button>
+      <button mat-icon-button >
+        <mat-icon>info</mat-icon>
+      </button>
+    </div> -->
+    <div class="product-buttons">
+      <div class="" *ngFor="let btn of card.icons; let i = index">
+      <!-- <button [id]="card.id+'-'+btn" class="product-button"  mat-icon-button  [style.bottom.rem]="0+i*2"> -->
+      <button [ngClass]="{'disable':((!isTiny && btn=='photo_camera') || card.data.picture.disable==true) || (card.info.length==0 && btn=='info')}"  [id]="card.id+'-'+btn" class="product-button"  mat-icon-button  [style.bottom.rem]="0+i*2">
+        <mat-icon class="product-button-icon">{{btn}}</mat-icon>
+      </button>  
+      </div>     
+    </div>
 
+    <!-- <div *ngIf="!isTiny" class="c1-button-container">
+      <button mat-icon-button *ngFor="let btn of buttons; let i = index" class="c1-button-1" (click)="buttonOptions(btn)" [style.right.rem]="0.5+i*2">
+        <mat-icon>{{btn}}</mat-icon>
+      </button>
+    </div> -->
+
+
+    <!-- <mat-icon>menu</mat-icon> -->
     <!-- <mat-card *ngFor="let prc of card.data.price; let i = index" class="product-price" [style.top.rem]="i*1.9">
           {{prc | currencyHuf}}
 
       </mat-card> -->
     <div class="product-text-container invisible " [ngClass]="{'tiny-text':isTiny}">
 
+      <!-- <h4 #popperTargetElement class="product-title">{{card.title}}</h4> -->
+      <p class="product-desc">{{card.textToFrame }} </p>
+<!-- 
       <h4 #popperTargetElement class="product-title">{{card.data.name[language]}}</h4>
-      <p class="product-desc">{{card.data.description[language] }} </p>
+      <p class="product-desc">{{card.data.description[language] }} </p> -->
     </div>
     <mat-card [id]="card.id" class="card">
       <div class="card__face card__face--front">
         <div class="product-text-container" [ngClass]="{'tiny-text':isTiny}">
 
-          <h4 [@cardState]="card.state" #popperTargetElement class="product-title">{{card.data.name[language]}}</h4>
-          <p [@cardState]="card.state" class="product-desc">{{card.data.description[language] }} </p>
-        </div>
-        <div class="product-img-shader shader" [ngClass]="{'tiny-shader':isTiny}"></div>
+          <h4  [@cardState]="card.state" #popperTargetElement class="product-title">{{card.titleToShow}}</h4>
+          <p  [@cardState]="card.state" class="product-desc">{{card.textToShow }} </p>
 
-        <div class="product-img-container">
+
+        </div>
+        <div [@shaderState]="card.state" class="product-img-shader shader" [ngClass]="{'tiny-shader':isTiny}"></div>
+
+        <div [@imgState]="card.state" class="product-img-container">
           <img class="product-img" [src]="card.data.picture.path">
         </div>
       </div>

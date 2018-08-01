@@ -5,6 +5,7 @@ import { fromEvent } from '../../../../../node_modules/rxjs';
 import { throttleTime, map, pairwise } from '../../../../../node_modules/rxjs/operators';
 import { ScreenService } from '../../screen/screen.service';
 import { eScrollPosition } from '../../screen/screen-model';
+import { LanguageService } from '../../language/language.service';
 
 
 
@@ -19,25 +20,25 @@ import { eScrollPosition } from '../../screen/screen-model';
 
     //     query(':enter', style({ opacity: 0 }), { optional: true }),
 
-    //     query(':enter', stagger('200ms', [
-    //       animate('800ms ease-in', keyframes([
-    //         style({ opacity: 0, transform: 'translateX(-175%) translateY(0%) scale(0.3)', offset: 0 }),
-    //         style({ opacity: 0.8, transform: 'translateX(-10%) translateY(0%) scale(0.90)', offset: 0.8 }),
+    //     query(':enter', stagger('125ms', [
+    //       animate('700ms ease-in', keyframes([
+    //         style({ opacity: 0, transform: 'translateX(-25%) translateY(20%) scale(0.3)', offset: 0 }),
+    //         style({ opacity: 0.5, transform: 'translateX(-10%) translateY(15%) scale(0.80)', offset: 0.8 }),
+    //         style({ opacity: 1, transform: 'translateX(-3%) translateY(5%) scale(0.95)', offset: 0.95 }),
     //         style({ opacity: 1, transform: 'translateX(0%) translateY(0%) scale(1)', offset: 1 }),
     //       ]))]), { optional: true })
     //   ])
     // ]),
-
 
     trigger('listAnimation', [
       transition('* => *', [
 
         query(':enter', style({ opacity: 0 }), { optional: true }),
 
-        query(':enter', stagger('200ms', [
-          animate('800ms ease-in', keyframes([
-            style({ opacity: 0, transform: 'translateX(0%) translateY(0%) scale(0.3)', offset: 0 }),
-            style({ opacity: 0.8, transform: 'translateX(0%) translateY(0%) scale(0.90)', offset: 0.8 }),
+        query(':enter', stagger('125ms', [
+          animate('700ms ease-in', keyframes([
+            style({ opacity: 0, transform: 'translateX(-65%) translateY(20%) scale(0.3)', offset: 0 }),
+            style({ opacity: 0.5, transform: 'translateX(-10%) translateY(15%) scale(0.80)', offset: 0.8 }),
             style({ opacity: 1, transform: 'translateX(0%) translateY(0%) scale(1)', offset: 1 }),
           ]))]), { optional: true })
       ])
@@ -62,34 +63,167 @@ import { eScrollPosition } from '../../screen/screen-model';
 
 
 
-    trigger('cardState', [
-      state('front', style({ transform: ' rotateY(0deg)' })),
-      state('back', style({ transform: ' rotateY(180deg) ' })),
-      transition('front => back',
-        animate('1500ms', keyframes([
+    // trigger('cardState', [
+    //   state('front', style({ transform: ' rotateY(0deg)' })),
+    //   state('back-info', style({ transform: ' rotateY(180deg) ' })),
+    //   state('back-picture', style({ opacity: 0 })),
 
-          style({                               opacity:0,   offset: 0.3}),
-          style({transform: 'rotateY(0deg) ',    opacity:0,   offset: 0.49}),
-          style({transform: 'rotateY(180deg) ',  opacity:0,   offset: 0.51}),   
-          style({transform: 'rotateY(180deg) ' , opacity:0.8,  offset: 0.67}),   
-          style({transform: 'rotateY(180deg) ' , opacity:1,   offset: 0.7}),   
+    //   transition('* => back-info',
+    //     animate('1500ms', keyframes([
 
-        ])
-      )),
-      transition('back => front',
-        animate('1300ms', keyframes([
+    //       style({ opacity: 0, offset: 0.3 }),
+    //       style({ transform: 'rotateY(0deg) ', opacity: 0, offset: 0.49 }),
+    //       style({ transform: 'rotateY(180deg) ', opacity: 0, offset: 0.51 }),
+    //       style({ transform: 'rotateY(180deg) ', opacity: 0.8, offset: 0.67 }),
+    //       style({ transform: 'rotateY(180deg) ', opacity: 1, offset: 0.7 }),
 
-          style({                               opacity:0,   offset: 0.3}),
-          style({transform: 'rotateY(180deg)',  opacity:0,   offset: 0.4999}),
-          style({transform: 'rotateY(0deg)',    opacity:0,   offset: 0.5001}),
-          style({                               opacity:1,   offset: 0.7}),   
+    //     ])
+    //     )),
+    //   transition('* => back-picture',
+    //     animate('1500ms', keyframes([
 
-        ])
-      ))
-    ])
+    //       style({ opacity: 1, offset: 0 }),
+    //       style({ opacity: 0, offset: 0.3 }),
+    //       style({ opacity: 0, offset: 1, height: '400px' }),
+
+    //     ])
+    //     )),
+    //   transition('* => front',
+    //     animate('1300ms', keyframes([
+
+    //       style({ opacity: 0, offset: 0.3 }),
+    //       style({ transform: 'rotateY(180deg)', opacity: 0, offset: 0.4999 }),
+    //       style({ transform: 'rotateY(0deg)', opacity: 0, offset: 0.5001 }),
+    //       style({ opacity: 1, offset: 0.7 }),
+
+    //     ])
+    //     ))
+    // ]),
 
 
     
+
+    trigger('cardState', [
+      state('front', style({ transform: ' rotateY(0deg)' })),
+      state('back-info', style({ transform: ' rotateY(180deg) ' })),
+      state('back-picture', style({ opacity: 0 })),
+
+      transition('* => back-info',
+        animate('1500ms', keyframes([
+
+          style({ opacity: 0, offset: 0.3 }),
+          style({ transform: 'rotateY(0deg) ', opacity: 0, offset: 0.49 }),
+          style({ transform: 'rotateY(180deg) ', opacity: 0, offset: 0.51 }),
+          style({ transform: 'rotateY(180deg) ', opacity: 0.8, offset: 0.67 }),
+          style({ transform: 'rotateY(180deg) ', opacity: 1, offset: 0.7 }),
+
+        ])
+        )),
+      transition('* => back-picture',
+        animate('1500ms', keyframes([
+
+          style({ opacity: 1, offset: 0 }),
+          style({ opacity: 0, offset: 0.3 }),
+          style({ opacity: 0, offset: 1, height: '400px' }),
+
+        ])
+        )),
+      transition('* => front',
+        animate('1300ms', keyframes([
+
+          style({ opacity: 0, offset: 0.3 }),
+          style({ transform: 'rotateY(180deg)', opacity: 0, offset: 0.4999 }),
+          style({ transform: 'rotateY(0deg)', opacity: 0, offset: 0.5001 }),
+          style({ opacity: 1, offset: 0.7 }),
+
+        ])
+        ))
+    ]),
+
+
+
+    trigger('shaderState', [
+      state('back-picture', style({ opacity: 0 })),
+      state('front', style({ opacity: 1 })),
+
+
+      transition('* => back-picture',
+        animate('1500ms', keyframes([
+
+          style({ opacity: 1, offset: 0 }),
+          style({ opacity: 0, offset: 0.7 }),
+          style({ opacity: 0, offset: 1 }),
+
+        ])
+        )),
+        transition('back-picture => front',
+        animate('1500ms', keyframes([
+
+          style({ opacity: 0, offset: 0 }),
+          style({ opacity: 0, offset: 0.3 }),
+          style({ opacity: 1, offset: 1 }),
+
+        ])
+        )),
+
+    ]),
+
+    
+    trigger('imgState', [
+      state('back-info', style({ transform: 'rotateY(0deg)' })),
+
+      state('back-picture', style({ transform: 'rotateY(180deg)' })),
+      state('front', style({ transform: 'rotateY(0deg)'  })),
+
+
+      transition('* => back-picture',
+        animate('2000ms', keyframes([
+          style({ opacity: 0, offset: 0.3 }),
+          style({ transform: 'rotateY(0deg) ', opacity: 0, offset: 0.49 }),
+          style({ transform: 'rotateY(180deg) ', opacity: 0, offset: 0.51 }),
+          style({ transform: 'rotateY(180deg) ', opacity: 0.3, offset: 0.6 }),
+          style({ transform: 'rotateY(180deg) ', opacity: 1, offset: 1 }),
+
+        ])
+        )),
+        transition('* => back-info',
+        animate('2000ms', keyframes([
+          style({ opacity: 0, offset: 0.3 }),
+          style({ transform: 'rotateY(0deg) ', opacity: 0, offset: 0.49 }),
+          style({ transform: 'rotateY(0deg) ', opacity: 0, offset: 0.51 }),
+          style({ transform: 'rotateY(0deg) ', opacity: 0.3, offset: 0.6 }),
+          style({ transform: 'rotateY(0deg) ', opacity: 1, offset: 1 }),
+
+        ])
+        )),
+        transition('back-picture => front',
+        animate('2000ms', keyframes([
+          style({ transform: 'rotateY(180deg) ', opacity: 1, offset: 0}),
+
+          style({ transform: 'rotateY(180deg) ', opacity: 0, offset: 0.25 }),          
+          // style({ transform: 'rotateY(0deg) ', opacity: 0, offset: 0.51 }),
+          style({ transform: 'rotateY(0deg) ', opacity: 0, offset: 0.67 }),
+          // style({ transform: 'rotateY(0deg) ', opacity: 0, offset: 0.9 }),
+          style({ transform: 'rotateY(0deg) ', opacity: 1, offset: 1 }),
+        ])
+        )),
+
+        transition('back-info => front',
+        animate('2000ms', keyframes([
+          style({ transform: 'rotateY(0deg) ', opacity: 1, offset: 0}),
+
+          style({ transform: 'rotateY(0deg) ', opacity: 0, offset: 0.25 }),          
+          // style({ transform: 'rotateY(0deg) ', opacity: 0, offset: 0.51 }),
+          style({ transform: 'rotateY(0deg) ', opacity: 0, offset: 0.67 }),
+          // style({ transform: 'rotateY(0deg) ', opacity: 0, offset: 0.9 }),
+          style({ transform: 'rotateY(0deg) ', opacity: 1, offset: 1 }),
+        ])
+        )),
+
+    ])
+
+
+
     // trigger('cardState', [
     //   state('front', style({ transform: ' rotateX(0deg)' })),
     //   state('back', style({ transform: ' rotateX(180deg) ' })),
@@ -115,36 +249,49 @@ import { eScrollPosition } from '../../screen/screen-model';
     //     ])
     //   ))
     // ])
-  // ]
+    // ]
 
 
-  
-  // trigger('cardState', [
-  //   animate("front", keyframes([
-  //     style({ backgroundColor: "red", offset: 0 }),
-  //     style({ backgroundColor: "blue", offset: 0.2 }),
-  //     style({ backgroundColor: "orange", offset: 0.3 }),
-  //     style({ backgroundColor: "black", offset: 1 })
-  //   ])),
+
+    // trigger('cardState', [
+    //   animate("front", keyframes([
+    //     style({ backgroundColor: "red", offset: 0 }),
+    //     style({ backgroundColor: "blue", offset: 0.2 }),
+    //     style({ backgroundColor: "orange", offset: 0.3 }),
+    //     style({ backgroundColor: "black", offset: 1 })
+    //   ])),
 
 
-  //   state('back', style({
-  //     transform: ' rotateY(-180deg)',
-  //     zIndex: 1000,
-  //     opacity: 1
-  //   })),
-  //   transition('front => back', animate('800ms ease-in-out')),
-  //   transition('back => front', animate('800ms ease-in-out'))
-  // ])
-]
+    //   state('back', style({
+    //     transform: ' rotateY(-180deg)',
+    //     zIndex: 1000,
+    //     opacity: 1
+    //   })),
+    //   transition('front => back', animate('800ms ease-in-out')),
+    //   transition('back => front', animate('800ms ease-in-out'))
+    // ])
+  ]
 
 })
 export class GridComponent implements OnInit {
   @Input() cards: Card[];
   @Input() deck: CardDeck;
-  @Input() language: string;
   @Input() type: eTableType;
-  @Input() isTiny: boolean;
+  // @Input() isTiny: boolean;
+  @Input() set isTiny(val: string) {
+    this._isTiny = val;
+    this.resetAll();
+  }
+  @Input() set language(lan: string) {
+    this._language = lan;
+    this.deck.switchLanguage(lan);
+  }
+  
+  private _language: string;
+  private _isTiny: string;
+  get language():string{return this._language;}
+  get isTiny():string{return this._isTiny;}
+
 
   // @ViewChild('cardContainer') cardContainer: EventTarget;
 
@@ -155,10 +302,11 @@ export class GridComponent implements OnInit {
 
   resetAll(except?: Card): void {
     this.deck.visibleCards.forEach(vc => {
+      
       setTimeout(() => {
-        if (vc.state != "front" && except !== vc) 
-        var elem = document.querySelector('#' + vc.id);
-        if(elem) {        
+        if (vc.state != "front" && except !== vc)
+          var elem = document.querySelector('#' + vc.id);
+        if (elem) {
           elem.classList.toggle('is-flipped');
           vc.reset();
         }
@@ -170,30 +318,47 @@ export class GridComponent implements OnInit {
 
   flip(card: Card): void {
     // this.deck.resetVisibleCards(card)
-    
-    card.flip();
+
+    card.flipPicture();
   }
 
 
 
 
   constructor(
-    private screenService: ScreenService
+    private screenService: ScreenService,
   ) {
     this.screenService.scroll().subscribe(data => {
       if (data.position == eScrollPosition.BOTTOM) setTimeout(() => {
         this.subscribeFlip(this.deck.addToVisible(7));
       }, 0);
-
     });
+
+    // this.deck.switchLanguage()
 
   }
 
 
-
-
-
-
+  // subscriptionFlip(elem:any, icon:any, card:Card){
+  //   elem.classList.toggle('is-flipped');
+  //   if (icon == "info"){
+  //     if(card.flipInfo())
+  //     setTimeout(() => {
+  //       card.flipInfo()
+  //       elem.classList.toggle('is-flipped');
+  //     }, 430);
+  //   }
+      
+  //   else {
+  //     if(card.flipPicture())
+  //     setTimeout(() => {
+  //       card.flipPicture()
+  //       elem.classList.toggle('is-flipped');
+  //     }, 430);
+  //   }
+  //   console.log('flip', card.id, card.state, this.deck)
+  //   this.resetAll(card)
+  // }
 
 
   subscribeFlip(cards: Card[]) {
@@ -202,25 +367,77 @@ export class GridComponent implements OnInit {
 
     setTimeout(() => {
       cards.forEach(card => {
-
-        let elem = document.querySelector('#' + card.id);
-
-        if (elem) elem.addEventListener('click', () => {
+        card.icons.forEach(icon => {
+          let qs = document.querySelector.bind( document )
+          let btn = document.querySelector('#' + card.id + '-' + icon);
+          let elem = qs('#' + card.id);
           
-          elem.classList.toggle('is-flipped');
-          card.flip();
-          console.log('flip', card.id, card.state, this.deck)
-          this.resetAll(card)
-        });
+
+          if (elem) if (btn) btn.addEventListener('click', () => {
+            elem.classList.toggle('is-flipped');
+            if (icon == "info"){
+              if(card.flipInfo())
+              setTimeout(() => {
+                card.flipInfo()
+                elem.classList.toggle('is-flipped');
+              }, 430);
+            }
+              
+            else {
+              if(card.flipPicture())
+              setTimeout(() => {
+                card.flipPicture()
+                elem.classList.toggle('is-flipped');
+              }, 430);
+            }
+            console.log('flip', card.id, card.state, this.deck)
+            this.resetAll(card)
+          });
+        })
       });
     }, 0);
 
   }
 
-  ngOnInit(){
+
+  // unsubscribeFlip(cards:Card[]){
+  //   cards.forEach(card => {
+  //     card.icons.forEach(icon => {
+  //       let qs = document.querySelector.bind( document )
+  //       let btn = document.querySelector('#' + card.id + '-' + icon);
+  //       let elem = qs('#' + card.id);
+  //       if (elem) if (btn) btn.removeEventListener('click')
+  //     })    
+  //   })
+
+  // }
+
+  // subscribeFlip(cards: Card[]) {
+
+  //   console.log("subscribe", this.isTiny)
+
+  //   setTimeout(() => {
+  //     cards.forEach(card => {
+
+  //       let btn = document.querySelector('#' + card.id+'-');
+  //       let elem = document.querySelector('#' + card.id);
+
+  //       if (elem) elem.addEventListener('click', () => {
+
+  //         elem.classList.toggle('is-flipped');
+  //         card.flip();
+  //         console.log('flip', card.id, card.state, this.deck)
+  //         this.resetAll(card)
+  //       });
+  //     });
+  //   }, 0);
+
+  // }
+
+  ngOnInit() {
 
   }
-  ngChange(){
+  ngChange() {
     console.log("   sub ", this.isTiny)
   }
 
@@ -248,13 +465,29 @@ export class GridComponent implements OnInit {
     //   card.classList.toggle('is-flipped');
     // });
     // }, 3000); 
-    setTimeout(() => {
-      this.subscribeFlip(this.deck.addToVisible());
-    }, 0);
+    // setTimeout(() => {
+    //   this.subscribeFlip(this.deck.addToVisible(2));
+    // }, 0);
     // this.deck.addToVisible(7);
     console.log("HELLO", this.deck)
     // // this.deck.cards
+    // this.screenService.
+    
+    var interval = setInterval(() => {
+      let scrollData = this.screenService.scrollCheck(document.querySelector('#drawerContent'));
+      if (scrollData.bottomPosPc < 98) {
+          clearInterval(interval);
+      }
+      this.subscribeFlip(this.deck.addToVisible(2));
 
+      console.log("scroddoll ", scrollData)
+
+    }, 600);
+
+  }
+
+  ngOnDestroy() {
+    // ...
   }
 
   // items = [];

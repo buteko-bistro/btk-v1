@@ -24,21 +24,21 @@ export const LANGUAGES: iLanguage[] = [
         eng: 'Drinks',
         bra: 'Bebidas',
       },
-      news:{ 
-        hun: 'Események',
-        eng: 'Events',
-        bra: 'Eventos',
-      },
-      gallery:{ 
-        hun: 'Képek',
-        eng: 'Gallery',
-        bra: 'Galeria',
-      },
-      us:{ 
-        hun: 'Rólunk',
-        eng: 'About Us',
-        bra: 'Gente',
-      },
+      // news:{ 
+      //   hun: 'Események',
+      //   eng: 'Events',
+      //   bra: 'Eventos',
+      // },
+      // gallery:{ 
+      //   hun: 'Képek',
+      //   eng: 'Gallery',
+      //   bra: 'Galeria',
+      // },
+      // us:{ 
+      //   hun: 'Rólunk',
+      //   eng: 'About Us',
+      //   bra: 'Gente',
+      // },
       contact:{ 
         hun: 'Elérhetőségek',
         eng: 'Contact',

@@ -15,6 +15,8 @@ export class ScreenService {
   private _screenData:iScreenData;
   private _scrollData:iScrollData;
 
+  // get scrollData
+
   private changeScreen$: Subject<iScreenData>;
   private changeScreenBreakpointBig$: Subject<boolean>;
   private changeScreenBreakpointTiny$: Subject<boolean>;
@@ -33,39 +35,45 @@ export class ScreenService {
   private _isLayoutLandscape = this.breakpointObserver.observe(['(orientation: landscape)']);
 
 
+   scrollCheck(element:any){
+    let topPos_last = (this._scrollData) ? this._scrollData.topPos : 0;
+    let topPos_new = element.scrollTop;
+    let bottomPos_new = element.clientHeight + element.scrollTop;
+
+    let dir = (topPos_last == topPos_new) ? eScrollDirection.STILL : 
+              (topPos_last <  topPos_new) ? eScrollDirection.DOWN : eScrollDirection.UP;  
+    
+    let pos = (topPos_new < 50) ? eScrollPosition.TOP :
+              (bottomPos_new > element.scrollHeight-50) ? eScrollPosition.BOTTOM :
+              eScrollPosition.MIDDLE;
+
+
+    let data = <iScrollData>{
+      heightFull:element.scrollHeight, 
+      heightView:element.clientHeight, 
+      topPos:topPos_new, 
+      bottomPos:bottomPos_new,
+      topPosPc:Math.round((topPos_new / element.scrollHeight) * 100), 
+      bottomPosPc:Math.round((bottomPos_new / element.scrollHeight) * 100),
+      direction: dir,
+      position: pos,
+    }
+    this.changeScroll$.next(data);
+    this._scrollData = data;
+
+    console.log("scroll ")
+    return data;
+
+   }
 
 
   subscribeScroll(element:any){
     this.scroll$ = fromEvent(element, 'scroll').pipe(
-      debounceTime(100)
+      // debounceTime(10)
     );
     this.scroll$.subscribe(() => {
+      this.scrollCheck(element)
       
-      let topPos_last = (this._scrollData) ? this._scrollData.topPos : 0;
-      let topPos_new = element.scrollTop;
-      let bottomPos_new = element.clientHeight + element.scrollTop;
-
-      let dir = (topPos_last == topPos_new) ? eScrollDirection.STILL : 
-                (topPos_last <  topPos_new) ? eScrollDirection.DOWN : eScrollDirection.UP;  
-      
-      let pos = (topPos_new < 50) ? eScrollPosition.TOP :
-                (bottomPos_new > element.scrollHeight-50) ? eScrollPosition.BOTTOM :
-                eScrollPosition.MIDDLE;
-
-
-      let data = <iScrollData>{
-        heightFull:element.scrollHeight, 
-        heightView:element.clientHeight, 
-        topPos:topPos_new, 
-        bottomPos:bottomPos_new,
-        topPosPc:Math.round((topPos_new / element.scrollHeight) * 100), 
-        bottomPosPc:Math.round((bottomPos_new / element.scrollHeight) * 100),
-        direction: dir,
-        position: pos,
-      }
-      this.changeScroll$.next(data);
-      this._scrollData = data;
-
     });
   }
 

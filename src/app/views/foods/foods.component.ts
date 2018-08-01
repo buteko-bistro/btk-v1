@@ -4,6 +4,7 @@ import { LanguageService } from '../../core/language/language.service';
 import { ScreenService } from '../../core/screen/screen.service';
 import { Subscription } from '../../../../node_modules/rxjs';
 import { Card, CardDeck } from '../../_data/_data-models';
+import { FOODS_DATA } from '../../_data/foods-data';
 
 @Component({
   selector: 'btk-foods',
@@ -14,9 +15,8 @@ export class FoodsComponent implements OnInit {
 
   private isScreenTiny:boolean = false;
 
-  foods = DRINKS_DATA;
-  foodsGroup = this.foods[3]
-  foodsItem  = this.foodsGroup.list[4]
+  foods = FOODS_DATA;
+  foodsGroup = this.foods[0]
 
   cards: Card[] = [];
 
@@ -36,14 +36,23 @@ export class FoodsComponent implements OnInit {
     this.cardDeck = new CardDeck("foods-", this.foodsGroup.columns);
 
 
-    this.foodsGroup.list.forEach((data, i)=> {this.cardDeck.pushCard(i,data)})
 
-    this.foodsGroup.list.forEach((data, i)=> {this.cardDeck.pushCard(i+30,data)})
-    this.foodsGroup.list.forEach((data, i)=> {this.cardDeck.pushCard(i+60,data)})
-    this.foodsGroup.list.forEach((data, i)=> {this.cardDeck.pushCard(i+90,data)})
+    
+
+    this.foodsGroup.list.forEach((data, i)=> {
+      let icons:string[] = []; 
+      if(data.info) icons.push('info')
+      if(data.picture.path.length > 0) icons.push('photo_camera')
+      this.cardDeck.pushCard(i,data, icons)
+    
+    })
+
+    // this.foodsGroup.list.forEach((data, i)=> {this.cardDeck.pushCard(i+30,data, [])})
+    // this.foodsGroup.list.forEach((data, i)=> {this.cardDeck.pushCard(i+60,data, [])})
+    // this.foodsGroup.list.forEach((data, i)=> {this.cardDeck.pushCard(i+90,data, [])})
 
 
-    console.log("FOODS -> ",this.cards, this.foods, this.foodsGroup, this.foodsItem)
+    // console.log("FOODS -> ",this.cards, this.foods, this.foodsGroup, this.foodsItem)
 
 
     this.lang = this.languageService.getCurrentLanguageID();
