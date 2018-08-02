@@ -26,7 +26,7 @@ export class DrinksComponent implements OnInit {
 
 
 
-  private isScreenTiny:boolean = false;
+  public isScreenTiny:boolean = false;
 
   drinks = DRINKS_DATA;
 

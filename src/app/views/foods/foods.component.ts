@@ -13,7 +13,7 @@ import { FOODS_DATA } from '../../_data/foods-data';
 })
 export class FoodsComponent implements OnInit {
 
-  private isScreenTiny:boolean = false;
+  public isScreenTiny:boolean = false;
 
   foods = FOODS_DATA;
   foodsGroup = this.foods[0]

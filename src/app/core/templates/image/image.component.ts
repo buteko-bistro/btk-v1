@@ -13,7 +13,7 @@ import { ResizedEvent } from 'angular-resize-event/resized-event';
 export class ImageComponent implements OnInit {
   @Input() data: iProduct;
   @Input() language: string;
-  @Input() type: string;
+  @Input() type: number;
 
 
   width: number;

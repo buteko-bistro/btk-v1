@@ -14,7 +14,7 @@ import { ResizedEvent } from 'angular-resize-event/resized-event';
 export class CardComponent implements OnInit {
   @Input() data: iProduct;
   @Input() language: string;
-  @Input() type: string;
+  @Input() type: number;
   @Input() isTiny: boolean;
 
   @ViewChild('btkimgtest') btkimgtest: ElementRef;
