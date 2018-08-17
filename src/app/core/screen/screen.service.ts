@@ -20,6 +20,7 @@ export class ScreenService {
   private changeScreen$: Subject<iScreenData>;
   private changeScreenBreakpointBig$: Subject<boolean>;
   private changeScreenBreakpointTiny$: Subject<boolean>;
+  private changeScreenBreakpointAnimS$: Subject<boolean>;
   private changeScroll$: Subject<iScrollData>;
 
   private scroll$:Observable<{}>;
@@ -32,6 +33,13 @@ export class ScreenService {
   private _isBigScreen = this.breakpointObserver.observe([ 
     '(min-width: ' + this.config.breakpointBig + 'px)'
    ]);
+
+   
+  private _isAnimS = this.breakpointObserver.observe([ 
+    '(max-width: ' + this.config.breakpointAnimSL + 'rem)'
+   ]);
+
+
   private _isLayoutLandscape = this.breakpointObserver.observe(['(orientation: landscape)']);
 
 
@@ -89,6 +97,9 @@ export class ScreenService {
   screenBreakpointTiny():Observable<boolean>{
     return this.changeScreenBreakpointTiny$.asObservable();
   }
+  screenBreakpointAnimS():Observable<boolean>{
+    return this.changeScreenBreakpointAnimS$.asObservable();
+  }
 
   scroll():Observable<iScrollData>{
     return this.changeScroll$.asObservable();
@@ -106,6 +117,7 @@ export class ScreenService {
       this.changeScreen$ = new Subject<iScreenData>();
       this.changeScreenBreakpointBig$ = new Subject<boolean>();
       this.changeScreenBreakpointTiny$ = new Subject<boolean>();
+      this.changeScreenBreakpointAnimS$ = new Subject<boolean>();
       this.changeScroll$ = new Subject<iScrollData>();
 
 
@@ -126,6 +138,11 @@ export class ScreenService {
         }
       });
 
+      this.changeScreenBreakpointAnimS$.subscribe({
+        next: (value)=>{
+          console.log("ANIME", this._screenData.isAnimS,this._screenData.isBig )
+        }
+      });
       
       this.changeScroll$.subscribe({
         next: (value)=>{
@@ -160,9 +177,19 @@ export class ScreenService {
         this.changeScreenBreakpointTiny$.next(this._screenData.isTiny);
       });  
 
+      this._isAnimS.subscribe(r => {
+        this._screenData.event = eSreenEventType.Breakpoint;
+        this._screenData.isAnimS = r.matches;
+        this._screenData.zoom = this.sampleZoom();
+        this.changeScreen$.next(this._screenData)
+        this.changeScreenBreakpointAnimS$.next(this._screenData.isAnimS);
+      });  
+
+
       this.changeScreen$.next(this._screenData)
       this.changeScreenBreakpointBig$.next(this._screenData.isBig);
       this.changeScreenBreakpointTiny$.next(this._screenData.isTiny);
+      this.changeScreenBreakpointTiny$.next(this._screenData.isAnimS);
 
 
 
@@ -182,6 +209,7 @@ export class ScreenService {
     this.changeScreen$.next(this._screenData);
     this.changeScreenBreakpointBig$.next(this._screenData.isBig);
     this.changeScreenBreakpointTiny$.next(this._screenData.isTiny);
+    this.changeScreenBreakpointAnimS$.next(this._screenData.isAnimS);
 
   }
 

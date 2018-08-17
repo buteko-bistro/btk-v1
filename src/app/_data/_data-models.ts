@@ -18,8 +18,10 @@ export enum eCurrency {
 
 export interface iPrice {
     value: number;
-    currency: eCurrency;
+    unit: string;
 }
+
+
 
 export enum ePictureStyle {
     normal = 1,
@@ -28,7 +30,7 @@ export enum ePictureStyle {
 
 export interface iPicture {
     path: string;
-    disable: boolean;
+    enable: boolean;
     style: ePictureStyle;
     type: ePictureType;
 
@@ -40,7 +42,7 @@ export enum ePictureType {
 }
 
 export interface iProductInfo {
-    text: iMultiLangData;
+    text: iMultiLangData|iMultiLangDataMultiLine;
 }
 
 
@@ -49,17 +51,24 @@ export interface iProduct {
     id: string;
     name: iMultiLangData;
     picture: iPicture;
-    description: iMultiLangData;
+    description: iMultiLangData | iMultiLangDataMultiLine;
     tags: string,
     price: number[],
+    unit: string[],
     info: iProductInfo,
 }
 
 export interface iProductGroup {
-    category: iMultiLangData;
-    columns: string[]
+    category: iMultiLangData
+    columns: iMultiLangDataMultiLine | string[]
     list: iProduct[]
     description?: iMultiLangData;
+}
+
+export interface iProductSection {
+    category: iMultiLangData
+    picture: iPicture;
+    list: iProductGroup[]
 }
 
 export enum eTableType {
@@ -77,6 +86,13 @@ export interface iMultiLangData {
     eng: string;
     bra?: string;
     ger?: string;
+}
+
+export interface iMultiLangDataMultiLine {
+    hun: string[];
+    eng: string[];
+    bra?: string[];
+    ger?: string[];
 }
 
 export interface iFood extends iProduct {
@@ -112,29 +128,64 @@ export interface iDrink extends iProduct {
 export interface iConfig {
     breakpointBig: number;
     breakpointTiny: number;
-
+    breakpointAnimSL: number;
 
 }
+
+
+export interface iContactLocation{
+    title: iMultiLangData;
+    address: iMultiLangDataMultiLine;
+}
+
+
+export interface iContactHours{
+    title: iMultiLangData;
+    time: iMultiLangDataMultiLine[];
+}
+
+export interface iContactContact{
+    title: iMultiLangData;
+    email: string;
+    phone: string;
+}
+
+export interface iContactData {
+    location:iContactLocation;
+    days:iContactHours;
+    contact:iContactContact;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 export class Card {
 
 
-    private _state: "front" | "back-picture" | "back-info" = "front";
+    private _state: "front" | "front-picture" | "back-info" = "front";
 
 
     public title = 'title';
-    public info = 'info';
-    public description = 'description';
+    public info:string[] = ['info'];
+    public description:string[] = ['description'];
     public titleToShow = 'text';
-    public textToShow = 'text';
-    public textToFrame = 'text';
+    public textToShow:string[] = ['text'];
+    public textToFrame:string[] = ['text'];
 
     constructor(
         private _id: string,
         private _data: iProduct,
         private _validPrices: number = 0,
-        private _icons: string[] = ['info', 'photo_camera']
+        private _icons: string[] = ['info']
 
     ) {
         this._id = "myCard-" + this._id;
@@ -156,14 +207,14 @@ export class Card {
     get validPrices(): number { return this._validPrices }
     get icons(): string[] { return this._icons }
 
-    public flipPicture(): boolean {
+    public showPicture(): boolean {
 
         let ret = false
-        if (this._state != "front" && this._state != "back-picture") {
+        if (this._state != "front" && this._state != "front-picture") {
             this._state = "front";
             ret = true;
         } else {
-            this._state = this._state == "front" ? "back-picture" : "front";
+            this._state = this._state == "front" ? "front-picture" : "front";
         }
 
         this.switchTextToShow(this._state);
@@ -196,8 +247,8 @@ export class Card {
 
     switchLanguage(lan: string) {
         this.title = '';
-        this.info = '';
-        this.description = '';
+        this.info = [''];
+        this.description = [''];
 
         if (this._data) if (this._data.name) if (this._data.name[lan])
             this.title = this._data.name[lan];
@@ -227,7 +278,8 @@ export class Card {
 
             let compensator =  "blalalla lalallalal lalalalla lalal alalla bala "
 
-            this.textToFrame = this.info.length > (compensator.length + this.description.length) ? this.info : this.description;
+            this.textToFrame = this.info.length > (this.description.length) ? this.info : this.description;
+            // this.textToFrame = this.description;
             
             this.titleToShow = (this._state == 'front') ? this.title : '';
 
@@ -245,7 +297,7 @@ export class Card {
 
 
     resetTinyOp() {
-        if (this._state == 'back-picture')
+        if (this._state == 'front-picture')
             this.reset();
     }
 
@@ -264,19 +316,19 @@ export class CardDeck {
 
     private _allCards: Card[] = [];
     private _visibleCards: Card[] = [];
-
+    private _language:string;
 
     get id(): string { return this._id }
     get allCards(): Card[] { return this._allCards }
     get visibleCards(): Card[] { return this._visibleCards }
-    get columns(): string[] { return this._columns }
+    get columns(): string[] { return this._allColumns[this._language] }
 
 
 
 
 
 
-    constructor(private _id: string, private _columns: string[]) {
+    constructor(private _id: string, private _allColumns: iMultiLangDataMultiLine) {
     }
 
     resetVisibleCards(except?: Card, isTiny?: boolean) {
@@ -284,7 +336,7 @@ export class CardDeck {
         this._visibleCards.forEach(card => {
             if (except !== card) {
                 if (isTiny == true) {
-                    if (card.state == 'back-picture')
+                    if (card.state == 'front-picture')
                         card.reset();
 
                 }
@@ -331,7 +383,11 @@ export class CardDeck {
         this._allCards.forEach(card => {
             card.switchLanguage(lan);
         });
+        this._language = lan;
+        
     }
 
 
 }
+
+

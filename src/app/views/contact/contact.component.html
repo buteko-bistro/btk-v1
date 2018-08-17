@@ -1,44 +1,69 @@
-<p>
-  contact works!
-</p>
-
 <!-- Photo Grid -->
-<!-- <div class="row"> 
+<div class="row">
   <div class="column">
-    <img src="https://www.w3schools.com/w3images/wedding.jpg" style="width:100%">
-    <img src="https://www.w3schools.com/w3images/rocks.jpg" style="width:100%">
-    <img src="https://www.w3schools.com/w3images/falls2.jpg" style="width:100%">
-    <img src="https://www.w3schools.com/w3images/paris.jpg" style="width:100%">
-    <img src="https://www.w3schools.com/w3images/nature.jpg" style="width:100%">
-    <img src="https://www.w3schools.com/w3images/mist.jpg" style="width:100%">
-    <img src="https://www.w3schools.com/w3images/paris.jpg" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="https://www.w3schools.com/w3images/underwater.jpg" style="width:100%">
-    <img src="https://www.w3schools.com/w3images/ocean.jpg" style="width:100%">
-    <img src="https://www.w3schools.com/w3images/wedding.jpg" style="width:100%">
-    <img src="https://www.w3schools.com/w3images/mountainskies.jpg" style="width:100%">
-    <img src="https://www.w3schools.com/w3images/rocks.jpg" style="width:100%">
-    <img src="https://www.w3schools.com/w3images/underwater.jpg" style="width:100%">
-  </div>  
-  <div class="column">
-    <img src="https://www.w3schools.com/w3images/wedding.jpg" style="width:100%">
-    <img src="https://www.w3schools.com/w3images/rocks.jpg" style="width:100%">
-    <img src="https://www.w3schools.com/w3images/falls2.jpg" style="width:100%">
-    <img src="https://www.w3schools.com/w3images/paris.jpg" style="width:100%">
-    <img src="https://www.w3schools.com/w3images/nature.jpg" style="width:100%">
-    <img src="https://www.w3schools.com/w3images/mist.jpg" style="width:100%">
-    <img src="https://www.w3schools.com/w3images/paris.jpg" style="width:100%">
-  </div>
-  <div class="column">
-    <img src="https://www.w3schools.com/w3images/underwater.jpg" style="width:100%">
-    <img src="https://www.w3schools.com/w3images/ocean.jpg" style="width:100%">
-    <img src="https://www.w3schools.com/w3images/wedding.jpg" style="width:100%">
-    <img src="https://www.w3schools.com/w3images/mountainskies.jpg" style="width:100%">
-    <img src="https://www.w3schools.com/w3images/rocks.jpg" style="width:100%">
-    <img src="https://www.w3schools.com/w3images/underwater.jpg" style="width:100%">
-  </div>
-</div> -->
+    <img src="assets/pictures/contact/sz1.jpg" style="width:100%">
 
-<iframe width="600" height="450" frameborder="0" style="border:0"
-src="https://www.google.com/maps/embed/v1/undefined?origin=...&q=...&destination=...&center=...&zoom=...&key=..." allowfullscreen></iframe>
+    <mat-card class="example-card mat-elevation-z4">
+      <h3> {{contact.location.title[lang]}} </h3>
+      <mat-list-item *ngFor="let line of contact.location.address[lang]">{{line}}</mat-list-item>
+    </mat-card>
+    <img src="assets/pictures/contact/sz2.jpg" style="width:100%">
+
+    <mat-card class="example-card mat-elevation-z4">
+        <h3> {{contact.contact.title[lang]}} </h3>
+        <mat-list-item > <mat-icon class="con-contact-icon">phone</mat-icon> <span class="con-contact">{{contact.contact.phone}}</span></mat-list-item>
+        <mat-list-item > <mat-icon class="con-contact-icon">email</mat-icon> <span class="con-contact">{{contact.contact.email}}</span></mat-list-item>
+      </mat-card>
+
+    <img src="assets/pictures/contact/sz3.jpg" style="width:100%">
+  </div>
+  <div class="column">
+
+
+    <mat-card class="example-card" class="mat-elevation-z4">
+        <h3> {{contact.days.title[lang]}} </h3>
+  
+  
+        <table mat-table [dataSource]="hours" class="con-hours-table mat-elevation-z0">
+  
+          <ng-container matColumnDef="day">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element"> {{element.day}} </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="start">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let element" class="con-hours-start">
+              <span [ngClass]="{'con-hours-end-closed':!element.end}">{{element.start}}</span>
+              <span class="con-hours-hifen" *ngIf="element.end"> - </span>
+            </td>
+          </ng-container>
+  
+          
+  
+          <ng-container matColumnDef="end">
+            <th mat-header-cell *matHeaderCellDef> </th>
+            <td mat-cell *matCellDef="let element">
+              <mat-chip-list *ngIf="element.end==24; else soon">
+                <mat-chip [disabled]="false" [disableRipple]="true">{{element.end}}</mat-chip>
+              </mat-chip-list>
+              <ng-template #soon>
+                <span class="con-hours-end-soon">{{element.end}}</span>
+              </ng-template>
+              <!-- {{element.end}}  -->
+            </td>
+          </ng-container>
+  
+          <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+  
+        
+  
+      </mat-card>
+      <img src="assets/pictures/contact/sz4.jpg" style="width:100%">
+
+  
+  </div>
+  
+</div>

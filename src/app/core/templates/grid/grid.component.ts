@@ -15,261 +15,113 @@ import { LanguageService } from '../../language/language.service';
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.scss'],
   animations: [
-    // trigger('listAnimation', [
+  
+
+    trigger('listAnimation', [
     //   transition('* => *', [
 
     //     query(':enter', style({ opacity: 0 }), { optional: true }),
 
     //     query(':enter', stagger('125ms', [
     //       animate('700ms ease-in', keyframes([
-    //         style({ opacity: 0, transform: 'translateX(-25%) translateY(20%) scale(0.3)', offset: 0 }),
+    //         style({ opacity: 0, transform: 'translateX(-65%) translateY(20%) scale(0.3)', offset: 0 }),
     //         style({ opacity: 0.5, transform: 'translateX(-10%) translateY(15%) scale(0.80)', offset: 0.8 }),
-    //         style({ opacity: 1, transform: 'translateX(-3%) translateY(5%) scale(0.95)', offset: 0.95 }),
     //         style({ opacity: 1, transform: 'translateX(0%) translateY(0%) scale(1)', offset: 1 }),
     //       ]))]), { optional: true })
     //   ])
-    // ]),
-
-    trigger('listAnimation', [
-      transition('* => *', [
-
-        query(':enter', style({ opacity: 0 }), { optional: true }),
-
-        query(':enter', stagger('125ms', [
-          animate('700ms ease-in', keyframes([
-            style({ opacity: 0, transform: 'translateX(-65%) translateY(20%) scale(0.3)', offset: 0 }),
-            style({ opacity: 0.5, transform: 'translateX(-10%) translateY(15%) scale(0.80)', offset: 0.8 }),
-            style({ opacity: 1, transform: 'translateX(0%) translateY(0%) scale(1)', offset: 1 }),
-          ]))]), { optional: true })
-      ])
     ]),
 
 
 
     trigger('priceAnimation', [
-      transition('* => *', [
+    //   transition('* => *', [
 
-        // query(':enter', style({ opacity: 0 }), { optional: true }),
+    //     query(':enter', style({ opacity: 0 }), { optional: true }),
 
-        query(':enter', stagger('300ms', [
-          animate('1800ms ease-in', keyframes([
-            style({ opacity: 0, transform: 'translateX(-175%) translateY(0%) scale(0.3)', offset: 0 }),
-            style({ opacity: 0.8, transform: 'translateX(-10%) translateY(0%) scale(0.90)', offset: 0.8 }),
-            style({ opacity: 1, transform: 'translateX(0%) translateY(0%) scale(1)', offset: 1 }),
-          ]))]), { optional: true })
-      ])
+    //     query(':enter', stagger('300ms', [
+    //       animate('1800ms ease-in', keyframes([
+    //         style({ opacity: 0, transform: 'translateX(-175%) translateY(0%) scale(0.3)', offset: 0 }),
+    //         style({ opacity: 0.8, transform: 'translateX(-10%) translateY(0%) scale(0.90)', offset: 0.8 }),
+    //         style({ opacity: 1, transform: 'translateX(0%) translateY(0%) scale(1)', offset: 1 }),
+    //       ]))]), { optional: true })
+    //   ])
     ]),
 
-
-
-
-    // trigger('cardState', [
-    //   state('front', style({ transform: ' rotateY(0deg)' })),
-    //   state('back-info', style({ transform: ' rotateY(180deg) ' })),
-    //   state('back-picture', style({ opacity: 0 })),
-
-    //   transition('* => back-info',
-    //     animate('1500ms', keyframes([
-
-    //       style({ opacity: 0, offset: 0.3 }),
-    //       style({ transform: 'rotateY(0deg) ', opacity: 0, offset: 0.49 }),
-    //       style({ transform: 'rotateY(180deg) ', opacity: 0, offset: 0.51 }),
-    //       style({ transform: 'rotateY(180deg) ', opacity: 0.8, offset: 0.67 }),
-    //       style({ transform: 'rotateY(180deg) ', opacity: 1, offset: 0.7 }),
-
-    //     ])
-    //     )),
-    //   transition('* => back-picture',
-    //     animate('1500ms', keyframes([
-
-    //       style({ opacity: 1, offset: 0 }),
-    //       style({ opacity: 0, offset: 0.3 }),
-    //       style({ opacity: 0, offset: 1, height: '400px' }),
-
-    //     ])
-    //     )),
-    //   transition('* => front',
-    //     animate('1300ms', keyframes([
-
-    //       style({ opacity: 0, offset: 0.3 }),
-    //       style({ transform: 'rotateY(180deg)', opacity: 0, offset: 0.4999 }),
-    //       style({ transform: 'rotateY(0deg)', opacity: 0, offset: 0.5001 }),
-    //       style({ opacity: 1, offset: 0.7 }),
-
-    //     ])
-    //     ))
-    // ]),
 
 
     
 
     trigger('cardState', [
-      state('front', style({ transform: ' rotateY(0deg)' })),
-      state('back-info', style({ transform: ' rotateY(180deg) ' })),
-      state('back-picture', style({ opacity: 0 })),
+      // state('front', style({ transform: ' rotateY(0deg)' })),
+      // state('back-info', style({ transform: ' rotateY(180deg) ' })),
+      // state('back-picture', style({ opacity: 0 })),
 
-      transition('* => back-info',
-        animate('1500ms', keyframes([
+      // transition('* => back-info',
+      //   animate('1500ms', keyframes([
 
-          style({ opacity: 0, offset: 0.3 }),
-          style({ transform: 'rotateY(0deg) ', opacity: 0, offset: 0.49 }),
-          style({ transform: 'rotateY(180deg) ', opacity: 0, offset: 0.51 }),
-          style({ transform: 'rotateY(180deg) ', opacity: 0.8, offset: 0.67 }),
-          style({ transform: 'rotateY(180deg) ', opacity: 1, offset: 0.7 }),
+      //     style({ opacity: 0, offset: 0.3 }),
+      //     style({ transform: 'rotateY(0deg) ', opacity: 0, offset: 0.49 }),
+      //     style({ transform: 'rotateY(180deg) ', opacity: 0, offset: 0.51 }),
+      //     style({ transform: 'rotateY(180deg) ', opacity: 0.8, offset: 0.67 }),
+      //     style({ transform: 'rotateY(180deg) ', opacity: 1, offset: 0.7 }),
 
-        ])
-        )),
-      transition('* => back-picture',
-        animate('1500ms', keyframes([
+      //   ])
+      //   )),
+    
+      // transition('* => front',
+      //   animate('1300ms', keyframes([
 
-          style({ opacity: 1, offset: 0 }),
-          style({ opacity: 0, offset: 0.3 }),
-          style({ opacity: 0, offset: 1, height: '400px' }),
+      //     style({ opacity: 0, offset: 0.3 }),
+      //     style({ transform: 'rotateY(180deg)', opacity: 0, offset: 0.4999 }),
+      //     style({ transform: 'rotateY(0deg)', opacity: 0, offset: 0.5001 }),
+      //     style({ opacity: 1, offset: 0.7 }),
 
-        ])
-        )),
-      transition('* => front',
-        animate('1300ms', keyframes([
-
-          style({ opacity: 0, offset: 0.3 }),
-          style({ transform: 'rotateY(180deg)', opacity: 0, offset: 0.4999 }),
-          style({ transform: 'rotateY(0deg)', opacity: 0, offset: 0.5001 }),
-          style({ opacity: 1, offset: 0.7 }),
-
-        ])
-        ))
+      //   ])
+      //   ))
     ]),
 
 
 
     trigger('shaderState', [
-      state('back-picture', style({ opacity: 0 })),
-      state('front', style({ opacity: 1 })),
+      // state('back-picture', style({ opacity: 0 })),
+      // state('front', style({ opacity: 1 })),
 
 
-      transition('* => back-picture',
-        animate('1500ms', keyframes([
+      // transition('* => back-picture',
+      //   animate('1500ms', keyframes([
 
-          style({ opacity: 1, offset: 0 }),
-          style({ opacity: 0, offset: 0.7 }),
-          style({ opacity: 0, offset: 1 }),
+      //     style({ opacity: 1, offset: 0 }),
+      //     style({ opacity: 0, offset: 0.7 }),
+      //     style({ opacity: 0, offset: 1 }),
 
-        ])
-        )),
-        transition('back-picture => front',
-        animate('1500ms', keyframes([
+      //   ])
+      //   )),
+      //   transition('back-picture => front',
+      //   animate('1500ms', keyframes([
 
-          style({ opacity: 0, offset: 0 }),
-          style({ opacity: 0, offset: 0.3 }),
-          style({ opacity: 1, offset: 1 }),
+      //     style({ opacity: 0, offset: 0 }),
+      //     style({ opacity: 0, offset: 0.3 }),
+      //     style({ opacity: 1, offset: 1 }),
 
-        ])
-        )),
+      //   ])
+      //   )),
 
     ]),
 
     
     trigger('imgState', [
-      state('back-info', style({ transform: 'rotateY(0deg)' })),
+      // state('back-info1', style({ transform: 'rotateY(0deg)' })),
 
-      state('back-picture', style({ transform: 'rotateY(180deg)' })),
-      state('front', style({ transform: 'rotateY(0deg)'  })),
+      // state('back-picture1', style({ transform: 'rotateY(180deg)' })),
+      // state('front1', style({ transform: 'rotateY(0deg)'  })),
 
 
-      transition('* => back-picture',
-        animate('2000ms', keyframes([
-          style({ opacity: 0, offset: 0.3 }),
-          style({ transform: 'rotateY(0deg) ', opacity: 0, offset: 0.49 }),
-          style({ transform: 'rotateY(180deg) ', opacity: 0, offset: 0.51 }),
-          style({ transform: 'rotateY(180deg) ', opacity: 0.3, offset: 0.6 }),
-          style({ transform: 'rotateY(180deg) ', opacity: 1, offset: 1 }),
-
-        ])
-        )),
-        transition('* => back-info',
-        animate('2000ms', keyframes([
-          style({ opacity: 0, offset: 0.3 }),
-          style({ transform: 'rotateY(0deg) ', opacity: 0, offset: 0.49 }),
-          style({ transform: 'rotateY(0deg) ', opacity: 0, offset: 0.51 }),
-          style({ transform: 'rotateY(0deg) ', opacity: 0.3, offset: 0.6 }),
-          style({ transform: 'rotateY(0deg) ', opacity: 1, offset: 1 }),
-
-        ])
-        )),
-        transition('back-picture => front',
-        animate('2000ms', keyframes([
-          style({ transform: 'rotateY(180deg) ', opacity: 1, offset: 0}),
-
-          style({ transform: 'rotateY(180deg) ', opacity: 0, offset: 0.25 }),          
-          // style({ transform: 'rotateY(0deg) ', opacity: 0, offset: 0.51 }),
-          style({ transform: 'rotateY(0deg) ', opacity: 0, offset: 0.67 }),
-          // style({ transform: 'rotateY(0deg) ', opacity: 0, offset: 0.9 }),
-          style({ transform: 'rotateY(0deg) ', opacity: 1, offset: 1 }),
-        ])
-        )),
-
-        transition('back-info => front',
-        animate('2000ms', keyframes([
-          style({ transform: 'rotateY(0deg) ', opacity: 1, offset: 0}),
-
-          style({ transform: 'rotateY(0deg) ', opacity: 0, offset: 0.25 }),          
-          // style({ transform: 'rotateY(0deg) ', opacity: 0, offset: 0.51 }),
-          style({ transform: 'rotateY(0deg) ', opacity: 0, offset: 0.67 }),
-          // style({ transform: 'rotateY(0deg) ', opacity: 0, offset: 0.9 }),
-          style({ transform: 'rotateY(0deg) ', opacity: 1, offset: 1 }),
-        ])
-        )),
+    
 
     ])
 
 
 
-    // trigger('cardState', [
-    //   state('front', style({ transform: ' rotateX(0deg)' })),
-    //   state('back', style({ transform: ' rotateX(180deg) ' })),
-    //   transition('front => back',
-    //     animate('1500ms', keyframes([
-
-    //       style({                               opacity:0,   offset: 0.3}),
-    //       style({transform: 'rotateX(0deg) ',    opacity:0,   offset: 0.49}),
-    //       style({transform: 'rotateX(180deg) ',  opacity:0,   offset: 0.51}),   
-    //       style({transform: 'rotateX(180deg) ' , opacity:0.8,  offset: 0.67}),   
-    //       style({transform: 'rotateX(180deg) ' , opacity:1,   offset: 0.7}),   
-
-    //     ])
-    //   )),
-    //   transition('back => front',
-    //     animate('1300ms', keyframes([
-
-    //       style({                               opacity:0,   offset: 0.3}),
-    //       style({transform: 'rotateX(180deg)',  opacity:0,   offset: 0.4999}),
-    //       style({transform: 'rotateX(0deg)',    opacity:0,   offset: 0.5001}),
-    //       style({                               opacity:1,   offset: 0.7}),   
-
-    //     ])
-    //   ))
-    // ])
-    // ]
-
-
-
-    // trigger('cardState', [
-    //   animate("front", keyframes([
-    //     style({ backgroundColor: "red", offset: 0 }),
-    //     style({ backgroundColor: "blue", offset: 0.2 }),
-    //     style({ backgroundColor: "orange", offset: 0.3 }),
-    //     style({ backgroundColor: "black", offset: 1 })
-    //   ])),
-
-
-    //   state('back', style({
-    //     transform: ' rotateY(-180deg)',
-    //     zIndex: 1000,
-    //     opacity: 1
-    //   })),
-    //   transition('front => back', animate('800ms ease-in-out')),
-    //   transition('back => front', animate('800ms ease-in-out'))
-    // ])
   ]
 
 })
@@ -310,19 +162,11 @@ export class GridComponent implements OnInit {
           elem.classList.toggle('is-flipped');
           vc.reset();
         }
-      }, 200);
+      }, 0);
     });
   }
 
   visibleCards: Card[] = [];
-
-  flip(card: Card): void {
-    // this.deck.resetVisibleCards(card)
-
-    card.flipPicture();
-  }
-
-
 
 
   constructor(
@@ -374,8 +218,10 @@ export class GridComponent implements OnInit {
           
 
           if (elem) if (btn) btn.addEventListener('click', () => {
-            elem.classList.toggle('is-flipped');
             if (icon == "info"){
+              elem.classList.toggle('is-flipped');
+              this.resetAll(card)
+
               if(card.flipInfo())
               setTimeout(() => {
                 card.flipInfo()
@@ -384,14 +230,14 @@ export class GridComponent implements OnInit {
             }
               
             else {
-              if(card.flipPicture())
+              this.resetAll()
+              // if(card.flipPicture())
               setTimeout(() => {
-                card.flipPicture()
-                elem.classList.toggle('is-flipped');
+                card.showPicture()
+              //   // elem.classList.toggle('is-flipped');
               }, 430);
             }
             console.log('flip', card.id, card.state, this.deck)
-            this.resetAll(card)
           });
         })
       });
@@ -475,14 +321,14 @@ export class GridComponent implements OnInit {
     
     var interval = setInterval(() => {
       let scrollData = this.screenService.scrollCheck(document.querySelector('#drawerContent'));
-      if (scrollData.bottomPosPc < 98) {
+      if (scrollData.bottomPosPc < 95) {
           clearInterval(interval);
       }
-      this.subscribeFlip(this.deck.addToVisible(2));
+      this.subscribeFlip(this.deck.addToVisible(20));
 
       console.log("scroddoll ", scrollData)
 
-    }, 600);
+    }, 0);
 
   }
 

@@ -8,13 +8,19 @@ import { UsComponent } from './views/us/us.component';
 import { ContactComponent } from './views/contact/contact.component';
 
 const routes: Routes = [
-  { path: 'foods', component: FoodsComponent },
-  { path: 'drinks', component: DrinksComponent },
+  { path: '', redirectTo: 'foods', pathMatch: 'full' },
+  { path: 'foods', component: FoodsComponent, data: { state: 'foods' } },
+  { path: 'drinks', component: DrinksComponent, data: { state: 'drinks' } },
   { path: 'news', component: NewsComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'us', component: UsComponent },
-  { path: 'contact', component: ContactComponent },
+  { path: 'contact', component: ContactComponent, data: { state: 'contact' } },
+  // { path: '**', component: NotFound }
 ];
+
+export const AppRouting = RouterModule.forRoot(routes, { 
+  useHash: true
+});
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

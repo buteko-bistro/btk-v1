@@ -59,7 +59,7 @@ import { CardFrameComponent } from './core/templates/card-frame/card-frame.compo
     MaterialModule,
     LanguageModule,
     NgxPopperModule,
-    AngularResizedEventModule
+    AngularResizedEventModule    
   ],
   providers: [],
   bootstrap: [AppComponent]

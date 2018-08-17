@@ -41,6 +41,7 @@ export class CardComponent implements OnInit {
   private title = '';
   private description = '';
   private isDescriptionValid = false;
+  private imgpath = '';
 
 
 wwww:number;
@@ -67,7 +68,11 @@ wwww:number;
           if(this.description.length > 0)
             this.isDescriptionValid = true;
         }
-
+    if(this.data) 
+      if(this.data.picture) 
+        if(this.data.picture.path)  
+          this.imgpath = this.data.picture.path;
+      
   }
 
 
@@ -86,8 +91,8 @@ wwww:number;
       if(this.data.info)
         this.buttons.push(this.icons.info)
 
-      if(this.data.picture.path)
-        this.buttons.push(this.icons.photo);
+      // if(this.data.picture.path)
+      //   this.buttons.push(this.icons.photo);
 
     }
   }

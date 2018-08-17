@@ -15,6 +15,7 @@ export interface iScreenData{
     isLandscape:boolean;
     isBig:boolean;
     isTiny:boolean;
+    isAnimS:boolean;
 }
 
 export enum eScrollDirection{

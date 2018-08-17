@@ -9,6 +9,7 @@ import { LanguageService } from '../core/language/language.service';
 import { ScreenService } from '../core/screen/screen.service';
 import { getBodyNode } from '../../../node_modules/@angular/animations/browser/src/render/shared';
 import { iLanguage } from '../_data/_data-models';
+import { routerTransition } from '../core/animations/router.animations';
 
 
 
@@ -17,7 +18,7 @@ import { iLanguage } from '../_data/_data-models';
   selector: 'btk-navigator',
   templateUrl: './navigator.component.html',
   styleUrls: ['./navigator.component.sass'],
-
+  animations: [routerTransition]
 
 })
 export class NavigatorComponent {
@@ -59,7 +60,7 @@ export class NavigatorComponent {
 
   isDrawerOpen:boolean = false;
   isBackDropOn:boolean = false;
-
+  isAnimS:boolean = false;
 
   isSmallScreen:boolean = false;
   
@@ -69,12 +70,16 @@ export class NavigatorComponent {
   private subscription_changeLanguage :Subscription;
   private subscription_screen :Subscription;
   private subscription_screenBreakpoint :Subscription;
+  private subscription_screenBreakpointAnimS :Subscription;
   
   constructor(
     private languageService:LanguageService,
     private screenService:ScreenService
   ) { 
     
+
+
+
     this.subscription_changeLanguage = this.languageService.getChangeLanguage().subscribe(lang => { 
       this.getWords(lang); 
     });
@@ -94,6 +99,12 @@ export class NavigatorComponent {
       }
     });
 
+    this.subscription_screenBreakpointAnimS = this.screenService.screenBreakpointAnimS().subscribe({
+      next: (isAnimS)=>{
+        this.isAnimS = isAnimS;     
+        console.log("Anime 2", this.isAnimS)
+      }
+    });
  
     this.screenService.triggerScreenCheck();
   }
@@ -136,6 +147,14 @@ export class NavigatorComponent {
     // }
   }
 
+
+
+  getState(outlet) {
+    let tag = '' + outlet.activatedRouteData.state + (this.isAnimS ? 'S' : 'L');
+    console.log('GS ', this.isAnimS, tag)
+    return tag;
+  }
+
   ngOnInit() {
 
   }
@@ -144,6 +163,9 @@ export class NavigatorComponent {
     this.subscription_changeLanguage.unsubscribe();
     this.subscription_screen.unsubscribe();
     this.subscription_screenBreakpoint.unsubscribe();
+    
   }
+
+  
 
 }

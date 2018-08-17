@@ -1,1 +1,61 @@
 
+
+.section-row{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 0.40rem;
+    z-index: 1;
+}
+
+.section-button{
+    position: static; 
+    overflow: hidden;
+    width: 19.3%;
+    height: 6rem;
+    border-radius: 0rem;    
+    max-width: 120px;
+    margin: 0.1rem;
+    background-color: white;
+    color: black;
+    font-size: 100%;
+
+}
+
+.section-img{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    width:  100%;
+    transform: translateY(4rem);
+    /* -webkit-transition: all .8s ease;
+    -moz-transition: all .8s ease;
+    -ms-transition: all .8s ease;
+    -o-transition: all .8s ease;
+    transition: all .8s ease; */
+    /* transform */
+}
+
+.section-data{
+    z-index: 1000;
+}
+
+
+
+.round-first{
+
+    border-radius: 2rem 0rem 0rem 0rem !important;
+}
+
+.round-last{
+
+    border-radius: 0rem 2rem 0rem 0rem !important;
+}
+
+
+
+
+
+
+

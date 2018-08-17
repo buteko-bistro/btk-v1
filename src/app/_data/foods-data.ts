@@ -1,4 +1,4 @@
-import { iProductGroup, iMultiLangData, iDrink, eDrinkTypes, iPicture, iProductInfo, ePictureStyle, ePictureType, iFood } from "./_data-models";
+import { iProductGroup, iMultiLangData, iDrink, eDrinkTypes, iPicture, iProductInfo, ePictureStyle, ePictureType, iFood, iMultiLangDataMultiLine } from "./_data-models";
 
 
 
@@ -10,21 +10,26 @@ export const FOODS_DATA: iProductGroup[] = [
     <iProductGroup>{
         category:
             <iMultiLangData>{
-                hun: 'Coxinha',
-                eng: 'Coxinha',
-                bra: 'Coxinha',
-                ger: 'Coxinha',
+                hun: 'Ételek',
+                eng: 'Foods',
+                bra: '',
+                ger: 'Essen',
             },
 
-        columns: ['name', 'db'],
+        columns:  <iMultiLangDataMultiLine>{
+            hun: ['name', '/db'],
+            eng: ['name', '/pc'],
+            bra: [],
+            ger: ['name', '/St'],
+        },
 
         description: 
-        <iMultiLangData>{
-            hun: "A Coxinha népszerű étel Brazíliában, apróra vágott vagy aprított csirkehúsból, tésztával borítva, csirkecomb alakú, rántott és pirított formában. ",
-            eng: 'Coxinha is a popular food in Brazil consisting of chopped or shredded chicken meat, covered in dough, molded into a shape resembling a chicken leg, battered and fried. ',
-            bra: 'Cappy Desc bra',
-            ger: 'Coxinha ist ein beliebtes Nahrungsmittel in Brasilien, das aus gehacktem oder geschnetzeltem Hühnerfleisch besteht, mit Teig bedeckt, in eine Form geformt, die an Hähnchenschenkel erinnert, angeschlagen und gebraten wird.',
-         },  
+            <iMultiLangData>{
+                hun: '',
+                eng: '',
+                bra: '',
+                ger: '',
+            },  
 
         list: [
 
@@ -32,429 +37,336 @@ export const FOODS_DATA: iProductGroup[] = [
 
             <iFood>{
                 id: '',
-                name: <iMultiLangData>{
-                    hun: 'Csirkés Coxinha',
-                    eng: '',
-                    bra: '',
-                    ger: '',
+                 name:  <iMultiLangData>{
+                    hun: 'Coxinha',
+                    eng: 'Coxinha',
+                    bra: 'Coxinha',
+                    ger: 'Coxinha',
                 },
                 picture: <iPicture>{
-                    path: 'assets/pictures/foods/coxinha_1.png'
+                    enable: true,
+                    path: 'assets/pictures/foods/coxinha_14.jpg'
                 },
                 description:
-                    <iMultiLangData>{
-                        hun: 'Csirke, paradicsom, hagyma',
-                        eng: '',
-                        bra: '',
-                        ger: '',
+                    <iMultiLangDataMultiLine>{
+                        hun: ['Csirkés-pulykás', 'Juhtúrós-tarjás','Sajtos-sonkás', 'Gombás-póréhagymás'],
+                        eng: ['Chicken and Turkey', 'Sheep cottage chese with pork shoulder', 'Ham and cheese', 'Mushroom and leek'],
+                        bra: [''],
+                        ger: [ 'Hänchen und Pute', 'Schafskäse mit magerem Scweinekamm','Schinken und Käse', 'Pilz und Lauch'],
                     },
-                price: [100],
+                price: [59],
                 info: <iProductInfo>{
-                    text: <iMultiLangData>{
-                        hun: "A Coxinha népszerű csirkecomb alakú krokett Brazíliából, apróra vágott csirkehússal töltve.",
-                        eng: '',
-                        bra: '',
-                        ger: '',
+                    text:
+                    <iMultiLangDataMultiLine>{
+                        hun: [],
+                        eng: [],
+                        bra: [],
+                        ger: [],
                     },
                 }
             },
 
 
+            <iFood>{
+                id: '',
+                name: <iMultiLangData>{
+                    hun: 'Cubano',
+                    eng: 'Cubano',
+                    bra: 'Cubano',
+                    ger: 'Cubano',
+                },
+                picture: <iPicture>{
+                    enable: true,
+                    path: 'assets/pictures/foods/cubano1.JPG'
+                },
+                description:
+                    <iMultiLangDataMultiLine>{
+                        hun: ['Pácolt disznóhús, főtt sonka, sajt, mustár, csemege uborka'],
+                        eng: ['Marinated pork, cooked ham, cheese, mustard, pickles'],
+                        bra: [''],
+                        ger: [ 'Mariniertes mageres Sweinefleisch, Kochschinken, Käse, Senf, Gurken'],
+                    },
+                price: [1390],
+                info: <iProductInfo>{
+                    text:
+                    <iMultiLangDataMultiLine>{
+                        hun: [],
+                        eng: [],
+                        bra: [],
+                        ger: [],
+                    },
+                }
+            },
 
 
             <iFood>{
                 id: '',
                 name: <iMultiLangData>{
-                    hun: 'Sajtos sonkás Coxinha',
-                    eng: '',
-                    bra: '',
-                    ger: '',
+                    hun: 'Marguerita',
+                    eng: 'Marguerita',
+                    bra: 'Marguerita',
+                    ger: 'Marguerita',
                 },
                 picture: <iPicture>{
-                    path: 'assets/pictures/foods/coxinha_5.png',
-                    disable: false
+                    enable: true,
+                    path: 'assets/pictures/foods/marguerita1.jpg'
                 },
                 description:
-                    <iMultiLangData>{
-                        hun: 'Trapista sajt, sonka, paradicsom',
-                        eng: '',
-                        bra: '',
-                        ger: '',
+                    <iMultiLangDataMultiLine>{
+                        hun: ['Mozzarella, paradicsom, bazsalikom'],
+                        eng: ['Mozzarella, tomato, basil'],
+                        bra: [''],
+                        ger: [ 'Mozzarella, Tomate, Basilikum'],
                     },
-                price: [100],
+                price: [790],
                 info: <iProductInfo>{
-                    text: <iMultiLangData>{
-                        hun: '',
-                        eng: '',
-                        bra: '',
-                        ger: '',
+                    text:
+                    <iMultiLangDataMultiLine>{
+                        hun: [],
+                        eng: [],
+                        bra: [],
+                        ger: [],
+                    },
+                }
+            },
+
+
+            
+            <iFood>{
+                id: '',
+                name: <iMultiLangData>{
+                    hun: 'Marguerita da Casa',
+                    eng: 'Marguerita da Casa',
+                    bra: 'Marguerita da Casa',
+                    ger: 'Marguerita da Casa',
+                },
+                picture: <iPicture>{
+                    enable: true,
+                    path: 'assets/pictures/foods/marguerita1.jpg'
+                },
+                description:
+                    <iMultiLangDataMultiLine>{
+                        hun: ['Mozzarella, bazsalikom, paradicsom konfit '],
+                        eng: ['Mozzarella, basil, tomato confit'],
+                        bra: [''],
+                        ger: [ 'Mozzarella, Basilikum, Tomatenkonfit'],
+                    },
+                price: [990],
+                info: <iProductInfo>{
+                    text:
+                    <iMultiLangDataMultiLine>{
+                        hun: [],
+                        eng: [],
+                        bra: [],
+                        ger: [],
                     },
                 }
             },
 
             
-
+            
             <iFood>{
                 id: '',
                 name: <iMultiLangData>{
-                    hun: 'Sajtos sonkás Coxinha',
-                    eng: '',
-                    bra: '',
-                    ger: '',
+                    hun: 'Carne Louca',
+                    eng: 'Carne Louca',
+                    bra: 'Carne Louca',
+                    ger: 'Carne Louca',
                 },
                 picture: <iPicture>{
-                    path: 'assets/pictures/foods/coxinha_12.jpg',
-                    disable: true
+                    enable: true,
+                    path: 'assets/pictures/foods/carnelouca1.jpg'
                 },
                 description:
-                    <iMultiLangData>{
-                        hun: 'Trapista sajt, sonka, paradicsom, dfsdfsd, dfdfsdf ',
-                        eng: '',
-                        bra: '',
-                        ger: '',
+                    <iMultiLangDataMultiLine>{
+                        hun: ['Sovány sertéshús, paradicsom, petrezselyem, fűszerek'],
+                        eng: ['Lean pork meat, tomato, persley, spices'],
+                        bra: [''],
+                        ger: [ 'Mageres Schweinefleisch, Tomaten, Petresilie, Gewürze'],
                     },
-                price: [100],
+                price: [890],
                 info: <iProductInfo>{
-                    text: <iMultiLangData>{
-                        hun: 'Vmi info',
-                        eng: '',
-                        bra: '',
-                        ger: '',
+                    text:
+                    <iMultiLangDataMultiLine>{
+                        hun: [],
+                        eng: [],
+                        bra: [],
+                        ger: [],
+                    },
+                }
+            },
+
+            
+            
+            <iFood>{
+                id: '',
+                name: <iMultiLangData>{
+                    hun: 'Fritas',
+                    eng: 'Fritas',
+                    bra: 'Fritas',
+                    ger: 'Fritas',
+                },
+                picture: <iPicture>{
+                    enable: true,
+                    path: 'assets/pictures/foods/fritas1.jpg'
+                },
+                description:
+                    <iMultiLangDataMultiLine>{
+                        hun: ['Hasábburgonya sajttal'],
+                        eng: ['French fries with molten cheese'],
+                        bra: [''],
+                        ger: [ 'Pommes mit Käse'],
+                    },
+                price: [590],
+                info: <iProductInfo>{
+                    text:
+                    <iMultiLangDataMultiLine>{
+                        hun: [],
+                        eng: [],
+                        bra: [],
+                        ger: [],
+                    },
+                }
+            },
+
+
+           
+            
+            <iFood>{
+                id: '',
+                name: <iMultiLangData>{
+                    hun: 'Boca de anjo',
+                    eng: 'Boca de anjo',
+                    bra: 'Boca de anjo',
+                    ger: 'Boca de anjo',
+                },
+                picture: <iPicture>{
+                    enable: true,
+                    path: 'assets/pictures/foods/bocadeanjo.jpg'
+                },
+                description:
+                    <iMultiLangDataMultiLine>{
+                        hun: ['Füstölt tarja, szalámi, sajt, paradicsom, petrezselyem, olajbogyó'],
+                        eng: ['Smoked pork shoulder, salami, cheese, tomato, persley, olive'],
+                        bra: [' '],
+                        ger: [ 'Geräucherte margerer Scweinekamm, Salami, Käse, Tomate, Petersille, Oliven'],
+                    },
+                price: [1190],
+                info: <iProductInfo>{
+                    text:
+                    <iMultiLangDataMultiLine>{
+                        hun: [],
+                        eng: [],
+                        bra: [],
+                        ger: [],
                     },
                 }
             },
 
 
 
+
+           
+            
             <iFood>{
                 id: '',
                 name: <iMultiLangData>{
-                    hun: 'Sajtos sonkás Coxinha',
-                    eng: '',
-                    bra: '',
-                    ger: '',
+                    hun: 'Bauru',
+                    eng: 'Bauru',
+                    bra: 'Bauru',
+                    ger: 'Bauru',
                 },
                 picture: <iPicture>{
-                    path: 'assets/pictures/foods/coxinha_13.jpg',
-                    disable: false
+                    enable: true,
+                    path: 'assets/pictures/foods/bauru.jpg'
                 },
                 description:
-                    <iMultiLangData>{
-                        hun: 'Trapista sajt, sonka, paradicsom, dfsdfsd, dfdfsdf rdfs ',
-                        eng: '',
-                        bra: '',
-                        ger: '',
+                    <iMultiLangDataMultiLine>{
+                        hun: ['Sajt, sonka, oregánó, paradicsom'],
+                        eng: ['Cheese, ham, oregano, tomato'],
+                        bra: [''],
+                        ger: [ 'Käse, Schinken, Oregano, Tomate'],
                     },
-                price: [100],
+                price: [790],
                 info: <iProductInfo>{
-                    text: <iMultiLangData>{
-                        hun: 'Vmi info dgsdfgsdg dsf gs dfgbs g s fgjk sjg sj gkjs gkjs gkj sdkjg skdj gkjsd gk sdkjg ',
-                        eng: '',
-                        bra: '',
-                        ger: '',
+                    text:
+                    <iMultiLangDataMultiLine>{
+                        hun: [],
+                        eng: [],
+                        bra: [],
+                        ger: [],
                     },
                 }
             },
 
-
+            
+    
+            
             <iFood>{
                 id: '',
                 name: <iMultiLangData>{
-                    hun: 'Sajtos sonkás Coxinha',
-                    eng: '',
-                    bra: '',
-                    ger: '',
+                    hun: 'Bauru da Casa',
+                    eng: 'Bauru da Casa',
+                    bra: 'Bauru da Casa',
+                    ger: 'Bauru da Casa',
                 },
                 picture: <iPicture>{
-                    path: 'assets/pictures/foods/coxinha_8.jpg',
-                    disable: false
+                    enable: true,
+                    path: 'assets/pictures/foods/bauru.jpg'
                 },
                 description:
-                    <iMultiLangData>{
-                        hun: 'Trapista sajt, sonka, paradicsom, dfsdfsd, dfdfsdf rdfs ',
-                        eng: '',
-                        bra: '',
-                        ger: '',
+                    <iMultiLangDataMultiLine>{
+                        hun: ['Sajt, sonka, oregánó, paradicsom konfit'],
+                        eng: ['Cheese, ham, oregano, tomato confit'],
+                        bra: [''],
+                        ger: [ 'Käse, Schinken, Oregano, Tomatenkonfit'],
                     },
-                price: [100],
+                price: [990],
                 info: <iProductInfo>{
-                    text: <iMultiLangData>{
-                        hun: 'Vmi info dgsdfgsdg dsf gs dfgbs g s fgjk sjg sj gkjs gkjs gkj sdkjg skdj gkjsd gk sdkjg ',
-                        eng: '',
-                        bra: '',
-                        ger: '',
+                    text:
+                    <iMultiLangDataMultiLine>{
+                        hun: [],
+                        eng: [],
+                        bra: [],
+                        ger: [],
                     },
                 }
             },
 
-
+           
+            
             <iFood>{
                 id: '',
                 name: <iMultiLangData>{
-                    hun: 'Sajtos sonkás Coxinha',
-                    eng: '',
-                    bra: '',
-                    ger: '',
+                    hun: 'Mini Churros',
+                    eng: 'Mini Churros',
+                    bra: 'Mini Churros',
+                    ger: 'Mini Churros',
                 },
                 picture: <iPicture>{
-                    path: 'assets/pictures/foods/coxinha_14.jpg',
-                    disable: false
+                    enable: true,
+                    path: 'assets/pictures/foods/churros.jpg'
                 },
                 description:
-                    <iMultiLangData>{
-                        hun: 'Trapista sajt, sonka, paradicsom, dfsdfsd, dfdfsdf rdfs ',
-                        eng: '',
-                        bra: '',
-                        ger: '',
+                    <iMultiLangDataMultiLine>{
+                        hun: ['Édes, spanyol fánk'],
+                        eng: ['Sweet, spanish pastry '],
+                        bra: [''],
+                        ger: [ 'Süße, spanische Krapfen'],
                     },
-                price: [100],
+                price: [43],
                 info: <iProductInfo>{
-                    text: <iMultiLangData>{
-                        hun: 'Vmi info dgsdfgsdg dsf gs dfgbs g s fgjk sjg sj gkjs gkjs gkj sdkjg skdj gkjsd gk sdkjg ',
-                        eng: '',
-                        bra: '',
-                        ger: '',
+                    text:
+                    <iMultiLangDataMultiLine>{
+                        hun: [],
+                        eng: [],
+                        bra: [],
+                        ger: [],
                     },
                 }
             },
-
-            <iFood>{
-                id: '',
-                name: <iMultiLangData>{
-                    hun: 'Sajtos sonkás Coxinha',
-                    eng: '',
-                    bra: '',
-                    ger: '',
-                },
-                picture: <iPicture>{
-                    path: 'assets/pictures/foods/coxinha_3.jpg',
-                    disable: false
-                },
-                description:
-                    <iMultiLangData>{
-                        hun: 'Trapista sajt, sonka, paradicsom, dfsdfsd, dfdfsdf rdfs ',
-                        eng: '',
-                        bra: '',
-                        ger: '',
-                    },
-                price: [100],
-                info: <iProductInfo>{
-                    text: <iMultiLangData>{
-                        hun: 'Vmi info dgsdfgsdg dsf gs dfgbs g s fgjk sjg sj gkjs gkjs gkj sdkjg skdj gkjsd gk sdkjg ',
-                        eng: '',
-                        bra: '',
-                        ger: '',
-                    },
-                }
-            },
-
-            <iFood>{
-                id: '',
-                name: <iMultiLangData>{
-                    hun: 'Sajtos sonkás Coxinha',
-                    eng: '',
-                    bra: '',
-                    ger: '',
-                },
-                picture: <iPicture>{
-                    path: 'assets/pictures/foods/coxinha_4.png',
-                    disable: false
-                },
-                description:
-                    <iMultiLangData>{
-                        hun: 'Trapista sajt, sonka, paradicsom, dfsdfsd, dfdfsdf rdfs ',
-                        eng: '',
-                        bra: '',
-                        ger: '',
-                    },
-                price: [100],
-                info: <iProductInfo>{
-                    text: <iMultiLangData>{
-                        hun: 'Vmi info dgsdfgsdg dsf gs dfgbs g s fgjk sjg sj gkjs gkjs gkj sdkjg skdj gkjsd gk sdkjg ',
-                        eng: '',
-                        bra: '',
-                        ger: '',
-                    },
-                }
-            },
-            <iFood>{
-                id: '',
-                name: <iMultiLangData>{
-                    hun: 'Sajtos sonkás Coxinha',
-                    eng: '',
-                    bra: '',
-                    ger: '',
-                },
-                picture: <iPicture>{
-                    path: 'assets/pictures/foods/coxinha_1.png',
-                    disable: false
-                },
-                description:
-                    <iMultiLangData>{
-                        hun: 'Trapista sajt, sonka, paradicsom, dfsdfsd, dfdfsdf rdfs ',
-                        eng: '',
-                        bra: '',
-                        ger: '',
-                    },
-                price: [100],
-                info: <iProductInfo>{
-                    text: <iMultiLangData>{
-                        hun: 'Vmi info dgsdfgsdg dsf gs dfgbs g s fgjk sjg sj gkjs gkjs gkj sdkjg skdj gkjsd gk sdkjg ',
-                        eng: '',
-                        bra: '',
-                        ger: '',
-                    },
-                }
-            },
-            <iFood>{
-                id: '',
-                name: <iMultiLangData>{
-                    hun: 'Sajtos sonkás Coxinha',
-                    eng: '',
-                    bra: '',
-                    ger: '',
-                },
-                picture: <iPicture>{
-                    path: 'assets/pictures/foods/coxinha_13.jpg',
-                    disable: false
-                },
-                description:
-                    <iMultiLangData>{
-                        hun: 'Trapista sajt, sonka, paradicsom, dfsdfsd, dfdfsdf rdfs ',
-                        eng: '',
-                        bra: '',
-                        ger: '',
-                    },
-                price: [100],
-                info: <iProductInfo>{
-                    text: <iMultiLangData>{
-                        hun: 'Vmi info dgsdfgsdg dsf gs dfgbs g s fgjk sjg sj gkjs gkjs gkj sdkjg skdj gkjsd gk sdkjg ',
-                        eng: '',
-                        bra: '',
-                        ger: '',
-                    },
-                }
-            },
-
-
-            <iFood>{
-                id: '',
-                name: <iMultiLangData>{
-                    hun: 'Sajtos sonkás Coxinha',
-                    eng: '',
-                    bra: '',
-                    ger: '',
-                },
-                picture: <iPicture>{
-                    path: 'assets/pictures/foods/coxinha_3.jpg',
-                    disable: false
-                },
-                description:
-                    <iMultiLangData>{
-                        hun: 'Trapista sajt, sonka, paradicsom, dfsdfsd, dfdfsdf rdfs ',
-                        eng: '',
-                        bra: '',
-                        ger: '',
-                    },
-                price: [100],
-                info: <iProductInfo>{
-                    text: <iMultiLangData>{
-                        hun: 'Vmi info dgsdfgsdg dsf gs dfgbs g s fgjk sjg sj gkjs gkjs gkj sdkjg skdj gkjsd gk sdkjg ',
-                        eng: '',
-                        bra: '',
-                        ger: '',
-                    },
-                }
-            },
-
-            <iFood>{
-                id: '',
-                name: <iMultiLangData>{
-                    hun: 'Sajtos sonkás Coxinha',
-                    eng: '',
-                    bra: '',
-                    ger: '',
-                },
-                picture: <iPicture>{
-                    path: 'assets/pictures/foods/coxinha_4.png',
-                    disable: false
-                },
-                description:
-                    <iMultiLangData>{
-                        hun: 'Trapista sajt, sonka, paradicsom, dfsdfsd, dfdfsdf rdfs ',
-                        eng: '',
-                        bra: '',
-                        ger: '',
-                    },
-                price: [100],
-                info: <iProductInfo>{
-                    text: <iMultiLangData>{
-                        hun: 'Vmi info dgsdfgsdg dsf gs dfgbs g s fgjk sjg sj gkjs gkjs gkj sdkjg skdj gkjsd gk sdkjg ',
-                        eng: '',
-                        bra: '',
-                        ger: '',
-                    },
-                }
-            },
-            <iFood>{
-                id: '',
-                name: <iMultiLangData>{
-                    hun: 'Sajtos sonkás Coxinha',
-                    eng: '',
-                    bra: '',
-                    ger: '',
-                },
-                picture: <iPicture>{
-                    path: 'assets/pictures/foods/coxinha_1.png',
-                    disable: false
-                },
-                description:
-                    <iMultiLangData>{
-                        hun: 'Trapista sajt, sonka, paradicsom, dfsdfsd, dfdfsdf rdfs ',
-                        eng: '',
-                        bra: '',
-                        ger: '',
-                    },
-                price: [100],
-                info: <iProductInfo>{
-                    text: <iMultiLangData>{
-                        hun: 'Vmi info dgsdfgsdg dsf gs dfgbs g s fgjk sjg sj gkjs gkjs gkj sdkjg skdj gkjsd gk sdkjg ',
-                        eng: '',
-                        bra: '',
-                        ger: '',
-                    },
-                }
-            },
-            <iFood>{
-                id: '',
-                name: <iMultiLangData>{
-                    hun: 'Sajtos sonkás Coxinha',
-                    eng: '',
-                    bra: '',
-                    ger: '',
-                },
-                picture: <iPicture>{
-                    path: 'assets/pictures/foods/coxinha_13.jpg',
-                    disable: false
-                },
-                description:
-                    <iMultiLangData>{
-                        hun: 'Trapista sajt, sonka, paradicsom, dfsdfsd, dfdfsdf rdfs ',
-                        eng: '',
-                        bra: '',
-                        ger: '',
-                    },
-                price: [100],
-                info: <iProductInfo>{
-                    text: <iMultiLangData>{
-                        hun: 'Vmi info dgsdfgsdg dsf gs dfgbs g s fgjk sjg sj gkjs gkjs gkj sdkjg skdj gkjsd gk sdkjg ',
-                        eng: '',
-                        bra: '',
-                        ger: '',
-                    },
-                }
-            },
-
+ 
+         
 
         ]
     }

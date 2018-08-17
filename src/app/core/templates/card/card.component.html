@@ -1,24 +1,24 @@
-<div *ngIf="type==1" class="c1-product-cell" [style.min-height.rem]="(isTiny) ? buttons.length*1.9+0.5 : 0">
+<div *ngIf="type==1" class="c1-product-cell " [style.min-height.rem]="(isTiny) ? buttons.length*1.9+0.5 : 0">
 
-  <div *ngIf="!isTiny" class="c1-button-container">
+  <!-- <div *ngIf="!isTiny" class="c1-button-container">
     <button mat-icon-button *ngFor="let btn of buttons; let i = index" class="c1-button-1" (click)="buttonOptions(btn)" [style.right.rem]="0.5+i*2">
       <mat-icon>{{btn}}</mat-icon>
     </button>
-  </div>
-  <div *ngIf="isTiny" class="c1-button-container">
+  </div> -->
+  <!-- <div *ngIf="isTiny" class="c1-button-container">
     <button mat-icon-button *ngFor="let btn of buttons; let i = index" class="c1-button-2" (click)="buttonOptions(btn)" [style.bottom.rem]="i*1.9">
       <mat-icon>{{btn}}</mat-icon>
     </button>
-  </div>
+  </div> -->
 
 
-  <div class="c1-product-text-container " [ngClass]="{'c1-product-text-container-with-img':!isTiny, 'c1-button-spacer':buttons.length && !isTiny && isDescriptionValid}">
+  <div class="c1-product-text-container " [ngClass]="{'c1-product-text-container-with-img':imgpath.length>0, 'row-with-img':imgpath.length>0, 'c1-button-spacer':buttons.length && !isTiny && isDescriptionValid}">
     <h4 #popperTargetElement>{{title}}</h4>
-    <p class="c1-description">111 {{description }} </p>
+    <p *ngIf="description.length>0" class="c1-description">{{description }} </p>
   </div>
 
 
-  <btk-image  *ngIf="data.picture.path.length && !isTiny" [language]="language" [data]="data" [type]="type" class="c1-product-cell-img-container">
+  <btk-image  *ngIf="data.picture.path.length" [language]="language" [data]="data" [type]="type" class="c1-product-cell-img-container">
   </btk-image>
 
 </div>

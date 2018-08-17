@@ -7,9 +7,8 @@ import { iLanguage } from "./_data-models";
 export const LANGUAGES: iLanguage[] = [
     {id: 'hun', name: 'Magyar', icon:"assets/icons/flag-hun.svg"},
     {id: 'eng', name: 'English', icon:"assets/icons/flag-uk.svg"},
-    {id: 'bra', name: 'Português', icon:"assets/icons/flag-bra.svg"},
-    // {id: 'ger', name: 'Deutsch', icon:"assets/icons/flag-ger.svg"},
-    // {id: 'fra', name: 'Français', icon:"assets/icons/flag-fra.svg"},
+    // {id: 'bra', name: 'Português', icon:"assets/icons/flag-bra.svg"},
+    {id: 'ger', name: 'Deutsch', icon:"assets/icons/flag-ger.svg"},
   ];
 
   export const textNAVIGATION = {
@@ -18,11 +17,14 @@ export const LANGUAGES: iLanguage[] = [
         hun: 'Ételek',
         eng: 'Foods',
         bra: 'Comidas',
+        ger: 'Essen',
+
       },
       drinks:{ 
         hun: 'Italok',
         eng: 'Drinks',
         bra: 'Bebidas',
+        ger: 'Getränke',
       },
       // news:{ 
       //   hun: 'Események',
@@ -42,7 +44,8 @@ export const LANGUAGES: iLanguage[] = [
       contact:{ 
         hun: 'Elérhetőségek',
         eng: 'Contact',
-        bra: 'Contatos'
+        bra: 'Contatos',
+        ger: 'Kontakt',
       },
  
     }

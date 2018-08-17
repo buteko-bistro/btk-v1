@@ -11,7 +11,7 @@
 
     </mat-toolbar>
     <mat-nav-list class="drawer-options" *ngFor="let t of textNavigation">
-      <a mat-list-item [routerLink]="t[0]" href="#">{{t[1]}}</a>
+      <a mat-list-item [routerLink]="t[0]" routerLinkActive="active" href="#">{{t[1]}}</a>
     </mat-nav-list>
 
   </mat-drawer>
@@ -68,11 +68,16 @@
         <img class="background-img" [src]="background">
       </div>
 
-    <div class="my-content-frame-out">
-      <div class="my-content-frame">
-        <router-outlet></router-outlet>
+    <div class="my-content-frame-out" [@routerTransition]="{value:getState(o)}">
+      <div class="my-content-frame" >
+        <router-outlet #o="outlet"></router-outlet>
       </div>
     </div>
+    <!-- <div *ngIf="isAnimS" class="my-content-frame-out" [@routerTransition]="{value:getState(o)}">
+        <div class="my-content-frame" >
+          <router-outlet #o="outlet"></router-outlet>
+        </div>
+      </div> -->
 
 
     <div #backDrop *ngIf="isSmallScreen" class="sidenav-overlay transition" (click)="drawer.close()" [ngClass]="{'my-fadeOut': !isBackDropOn && isSmallScreen }"></div>

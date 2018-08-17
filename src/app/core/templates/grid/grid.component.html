@@ -1,13 +1,15 @@
-<div #cardContainer id="container" [@listAnimation]="deck.visibleCards.length">
-  <div class="scene scene--card" *ngFor="let card of deck.visibleCards">
-    <div  class="price">
+<div #cardContainer id="container" >
+<!-- <div #cardContainer id="container" [@listAnimation]="deck.visibleCards.length"> -->
+  <div class="scene scene--card noselect" *ngFor="let card of deck.visibleCards; let num = index">
+    <h1 class="food-index">{{num+1}}</h1>
+    <div class="price">
       <div class="product-container-value price-container" [@priceAnimation]="card.data.price.length">
 
         <div class="" *ngFor="let prc of card.data.price; let i = index">
           
           <mat-card *ngIf="prc>0" class="product-value-badge">
             <span class="price-text"> {{prc | currencyHuf}} </span>
-            <span *ngIf="card.validPrices>1" class="quantity-text">{{deck.columns[i+1]}}</span>
+            <span *ngIf="card.validPrices>0" class="quantity-text">{{deck.columns[i+1]}}</span>
             
           </mat-card>
 
@@ -47,8 +49,14 @@
       </mat-card> -->
     <div class="product-text-container invisible " [ngClass]="{'tiny-text':isTiny}">
 
-      <!-- <h4 #popperTargetElement class="product-title">{{card.title}}</h4> -->
-      <p class="product-desc">{{card.textToFrame }} </p>
+      <h4 #popperTargetElement class="product-title">{{card.title}}</h4>
+      <p [@cardState]="card.state" class="product-desc">
+        <mat-list *ngFor="let line of card.textToFrame">
+            <li *ngIf="card.textToFrame.length>1  && !isTiny">{{line}}</li>
+            <span *ngIf="isTiny || card.textToFrame.length==1">{{line}}</span>         
+        </mat-list>
+      </p>
+      <!-- <p *ngFor="let line of card.textToFrame; let i = index" class="product-desc">{{line }} </p> -->
 <!-- 
       <h4 #popperTargetElement class="product-title">{{card.data.name[language]}}</h4>
       <p class="product-desc">{{card.data.description[language] }} </p> -->
@@ -57,8 +65,14 @@
       <div class="card__face card__face--front">
         <div class="product-text-container" [ngClass]="{'tiny-text':isTiny}">
 
-          <h4  [@cardState]="card.state" #popperTargetElement class="product-title">{{card.titleToShow}}</h4>
-          <p  [@cardState]="card.state" class="product-desc">{{card.textToShow }} </p>
+          <h4 [@cardState]="card.state" #popperTargetElement class="product-title">{{card.titleToShow}}</h4>
+          <p [@cardState]="card.state" class="product-desc">
+            <mat-list *ngFor="let line of card.textToShow; let i = index">
+                <li *ngIf="card.textToShow.length>1  && !isTiny">{{line}}</li>
+                <span *ngIf="isTiny || card.textToShow.length==1">{{line}}</span>   
+            </mat-list>
+          </p>
+
 
 
         </div>

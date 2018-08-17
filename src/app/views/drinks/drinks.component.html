@@ -1,7 +1,19 @@
 
+<div class="section-row" >
+<!-- <div class="section-row" [@listAnimation]="allData.length"> -->
+  <button class="section-button" [ngClass]="{'round-first':i==0, 'round-last':i==allData.length-1}" *ngFor="let section of allData; let i = index" (click)="switchDrinkList(i)" mat-fab mat-flat-button>
+    <img class="section-img" [src]="section.picture.path">
+    {{section.category[lang]}}
+  </button>  
+</div>
+
+<!-- <ng-container *ngIf='allData | async as data'> -->
 <btk-list 
+
     [data]="drinks"
     [language]="lang"
     [isTiny]="isScreenTiny"
+    class="section-data"
   >
 </btk-list>
+<!-- </ng-container> -->

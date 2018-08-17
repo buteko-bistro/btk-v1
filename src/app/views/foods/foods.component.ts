@@ -3,7 +3,7 @@ import { DRINKS_DATA } from 'src/app/_data/drinks-data';
 import { LanguageService } from '../../core/language/language.service';
 import { ScreenService } from '../../core/screen/screen.service';
 import { Subscription } from '../../../../node_modules/rxjs';
-import { Card, CardDeck } from '../../_data/_data-models';
+import { Card, CardDeck, iMultiLangDataMultiLine } from '../../_data/_data-models';
 import { FOODS_DATA } from '../../_data/foods-data';
 
 @Component({
@@ -33,7 +33,10 @@ export class FoodsComponent implements OnInit {
     private languageService:LanguageService,
     private screenService:ScreenService
   ) { 
-    this.cardDeck = new CardDeck("foods-", this.foodsGroup.columns);
+
+    this.lang = this.languageService.getCurrentLanguageID();
+
+    this.cardDeck = new CardDeck("foods-", (this.foodsGroup.columns as iMultiLangDataMultiLine));
 
 
 
@@ -42,7 +45,7 @@ export class FoodsComponent implements OnInit {
     this.foodsGroup.list.forEach((data, i)=> {
       let icons:string[] = []; 
       if(data.info) icons.push('info')
-      if(data.picture.path.length > 0) icons.push('photo_camera')
+      // if(data.picture.path.length > 0) icons.push('photo_camera')
       this.cardDeck.pushCard(i,data, icons)
     
     })
@@ -55,7 +58,6 @@ export class FoodsComponent implements OnInit {
     // console.log("FOODS -> ",this.cards, this.foods, this.foodsGroup, this.foodsItem)
 
 
-    this.lang = this.languageService.getCurrentLanguageID();
 
     this.subscription_changeLanguage = this.languageService.getChangeLanguage().subscribe(
       lang => { 

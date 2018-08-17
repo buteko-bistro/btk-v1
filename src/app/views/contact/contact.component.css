@@ -20,8 +20,8 @@ body {
 
 /* Create four equal columns that sits next to each other */
 .column {
-    flex: 25%;
-    max-width: 25%;
+    flex: 50%;
+    max-width: 50%;
     padding: 0 4px;
 }
 
@@ -39,9 +39,57 @@ body {
 }
 
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media (max-width: 600px) {
+@media (max-width: 550px) {
     .column {
         flex: 100%;
         max-width: 100%;
     }
+}
+
+
+.con-day-name{
+    position: relative;
+
+    width : 15rem;  
+    padding: 1rem;
+}
+
+.con-hours-table{
+    position: relative;
+    width: 100%;
+}
+
+.con-hours-24{
+    background-color: yellow !important;
+}
+.con-hours-start{
+    text-align: right; 
+    
+}
+
+.con-hours-hifen{
+    padding-left: 0.8rem; 
+    padding-right: 0.3em; 
+    
+}
+
+.con-hours-end-soon{
+    padding-left: 0.8rem; 
+
+}
+
+.con-hours-end-closed{
+    position: fixed;
+    /* background-color: aqua; */
+    /* transform: translatX(2rem); */
+
+}
+
+.con-contact{
+    padding-left: 0.8rem; 
+
+}
+
+.con-contact-icon{
+    size: 0.5rem !important;
 }

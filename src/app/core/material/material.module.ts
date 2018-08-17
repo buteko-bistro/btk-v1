@@ -18,7 +18,9 @@ import {
   MatExpansionModule,
   MatTableModule,
   MatButtonToggleModule,
-  MatBadgeModule
+  MatBadgeModule,
+  MatDividerModule,
+  MatChipsModule
 } from '@angular/material';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -41,7 +43,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatExpansionModule,
     MatButtonToggleModule,
     MatTableModule,
-    MatBadgeModule
+    MatBadgeModule, 
+    MatDividerModule,
+    MatChipsModule
   ],
   exports: [
     MatButtonModule,
@@ -59,7 +63,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatExpansionModule,
     MatButtonToggleModule,
     MatTableModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatDividerModule,
+    MatChipsModule
   ],
   declarations: []
 })

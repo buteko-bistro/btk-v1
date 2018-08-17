@@ -1,10 +1,12 @@
-<mat-accordion>
-    <mat-expansion-panel *ngFor="let group of data">
-      <mat-expansion-panel-header>
-        <span mat-line>{{group.category[language]}}</span>
+<mat-accordion >
+
+    <mat-expansion-panel [disabled]="data.length === 1" [expanded]="data.length === 1" [hideToggle]="data.length === 1" class="" [ngClass]="{'round-top':i==-1, 'round-bottom':i==data.length-1}" *ngFor="let group of data; let i =index">
+      <mat-expansion-panel-header [ngClass]="{'mat-expansion-panel-header-tiny':data.length === 1}">
+        <span [hidden]="data.length === 1" mat-line>{{group.category[language]}}</span>
+
       </mat-expansion-panel-header>
       
-      <btk-table
+      <btk-table 
         [data]="group"
         [language]="language"
         [type]="tabletype"
@@ -12,4 +14,8 @@
       ></btk-table>
           
     </mat-expansion-panel>
+
+  
   </mat-accordion>
+
+  
