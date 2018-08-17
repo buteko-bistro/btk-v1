@@ -11,6 +11,7 @@ import { getBodyNode } from '../../../node_modules/@angular/animations/browser/s
 import { iLanguage } from '../_data/_data-models';
 import { routerTransition } from '../core/animations/router.animations';
 
+import { AG, AnimationGenerator } from '../core/animations/animations';
 
 
 
@@ -79,7 +80,6 @@ export class NavigatorComponent {
     
 
 
-
     this.subscription_changeLanguage = this.languageService.getChangeLanguage().subscribe(lang => { 
       this.getWords(lang); 
     });
@@ -120,7 +120,6 @@ export class NavigatorComponent {
         this.textNavigation = Object.entries(texts); 
       });
   }
-
 
   drawerChanged (isOpen:boolean){
     // this.isDrawerOpen = isOpen;

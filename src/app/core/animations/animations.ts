@@ -2,7 +2,7 @@ import {trigger, animate, style, group, animateChild, query, stagger, transition
 
 
 
-class AnimationGenerator{
+export class AnimationGenerator{
 
   
     public swipeEL(dir:"left"|"right"|"up"|"down", width = '38rem'){
